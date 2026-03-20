@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Socials — Kendren Cornish</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .social-links-grid { display:flex; flex-direction:column; gap:16px; max-width:600px; margin:40px auto; }
+    .social-link-card { display:flex; align-items:center; gap:20px; padding:24px; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius); transition:var(--transition); color:var(--text); text-decoration:none; position:relative; overflow:hidden;}
+    .social-link-card:hover { border-color:var(--accent-1); background:var(--bg-glass-hover); transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,0,0,0.5); }
+    .social-link-card.primary { border-color:rgba(167,139,250,0.3); background:rgba(167,139,250,0.05); }
+    .social-link-card.primary:hover { border-color:var(--accent-1); background:rgba(167,139,250,0.1); }
+    .social-icon { font-size:2rem; width:48px; display:flex; justify-content:center; }
+    .social-info { flex:1; }
+    .social-info h3 { font-family:var(--font-display); font-size:1.2rem; font-weight:600; margin-bottom:4px; }
+    .social-info p { font-size:14px; color:var(--text-2); line-height:1.5; margin:0; }
+    .social-arrow { font-size:1.5rem; color:var(--text-3); transition:var(--transition); }
+    .social-link-card:hover .social-arrow { color:var(--accent-1); transform:translateX(4px); }
+  </style>
+</head>
+<body>
+  <nav id="main-nav"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">KC</a>
+    <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li><li><a href="military.html">Service</a></li><li><a href="nonprofit.html">Nonprofit</a></li><li><a href="fintech.html">FinTech</a></li><li><a href="languages.html">Mandarin</a></li><li><a href="blog.html">Blog</a></li><li><a href="socials.html" class="active">Socials</a></li><li><a href="graduate.html">Grad Path</a></li><li><a href="contact.html" class="nav-cta">Connect</a></li>
+    </ul>
+  </div></nav>
+
+  <section class="page-hero">
+    <div class="page-hero-eyebrow">Connect & Follow</div>
+    <h1>My <span class="gradient-text">Network</span></h1>
+    <p>Find me across the web below. Whether it's code, professional updates, or connecting via email, I am always open to a conversation.</p>
+  </section>
+
+  <section class="prose-section section-pad" style="padding-top:0;">
+    <div class="container">
+      <div class="social-links-grid">
+
+        <a href="https://www.linkedin.com/in/kendren-cornish" target="_blank" class="social-link-card primary">
+          <div class="social-icon">👔</div>
+          <div class="social-info">
+            <h3>LinkedIn</h3>
+            <p>Connect with me for professional updates, AI research, and FinTech conversations.</p>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+        <a href="https://github.com/cornishlikeadam" target="_blank" class="social-link-card">
+          <div class="social-icon">🐙</div>
+          <div class="social-info">
+            <h3>GitHub</h3>
+            <p>View my code repositories, AI prototypes, and the Great Books Semantic Engine.</p>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+        <a href="resume-ai/index.html" class="social-link-card">
+          <div class="social-icon">🤖</div>
+          <div class="social-info">
+            <h3>Resume.AI Platform</h3>
+            <p>View the live demo of the LLM-powered job application system I am building.</p>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+        <a href="mailto:Kendren@proton.me" class="social-link-card">
+          <div class="social-icon">✉️</div>
+          <div class="social-info">
+            <h3>Email</h3>
+            <p>Reach out securely at Kendren@proton.me for research or collaboration opportunities.</p>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="container"><div class="footer-inner">
+    <div class="footer-brand"><div class="footer-logo">KC</div><p>Kendren Cornish<br/>SCAD Applied AI · B Des 2026<br/>Savannah, Georgia</p></div>
+    <div class="footer-nav-col"><h5>Work</h5><ul><li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Blog</a></li><li><a href="https://github.com/cornishlikeadam" target="_blank">GitHub</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Identity</h5><ul><li><a href="military.html">Military</a></li><li><a href="nonprofit.html">Nonprofit</a></li><li><a href="languages.html">Mandarin</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Strategy</h5><ul><li><a href="socials.html">Socials</a></li><li><a href="graduate.html">Grad Path</a></li><li><a href="contact.html">Connect</a></li></ul></div>
+  </div><div class="footer-bottom"><p>© 2026 Kendren Cornish. Built as a living document of a life in progress.</p><p class="footer-quote">"道可道，非常道" The Tao that can be named is not the eternal Tao.</p></div></div></footer>
+  <script src="main.js"></script>
+</body>
+</html>

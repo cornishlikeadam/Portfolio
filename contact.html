@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Kendren Cornish</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; margin-top:40px; }
+    @media(max-width:768px){.contact-grid{grid-template-columns:1fr;gap:40px;}}
+    .contact-form { background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius); padding:40px; }
+    .form-group { margin-bottom:20px; }
+    .form-group label { display:block; font-size:13px; font-weight:600; color:var(--text); margin-bottom:8px; letter-spacing:.03em; }
+    .form-group input, .form-group textarea, .form-group select {
+      width:100%; padding:13px 16px; background:rgba(255,255,255,0.04); border:1px solid var(--border);
+      border-radius:var(--radius-sm); color:var(--text); font:inherit; font-size:14px; transition:var(--transition);
+      outline:none; resize:vertical;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--accent-1); box-shadow:0 0 0 3px rgba(167,139,250,0.1); }
+    .form-group textarea { min-height:140px; }
+    .form-group select option { background:var(--bg-2); }
+    .contact-info-item { display:flex; align-items:center; gap:16px; padding:20px 0; border-bottom:1px solid var(--border); }
+    .contact-info-item:last-child { border:none; }
+    .contact-info-icon { width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--accent-1),var(--accent-2)); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+    .contact-info-text h4 { font-family:var(--font-display); font-size:.95rem; font-weight:600; margin-bottom:4px; }
+    .contact-info-text p { font-size:13px; color:var(--text-2); margin:0; }
+    .contact-info-text a { color:var(--accent-1); }
+    .connect-reason { background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius); padding:20px 24px; margin-bottom:16px; transition:var(--transition); cursor:pointer; }
+    .connect-reason:hover { border-color:var(--accent-1); background:rgba(167,139,250,0.05); }
+    .connect-reason h4 { font-family:var(--font-display); font-weight:600; margin-bottom:4px; }
+    .connect-reason p { font-size:13px; color:var(--text-2); margin:0; }
+    .connect-reason .icon { font-size:1.3rem; margin-right:8px; }
+  </style>
+</head>
+<body>
+  <nav id="main-nav"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">KC</a>
+    <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li><li><a href="military.html">Service</a></li><li><a href="nonprofit.html">Nonprofit</a></li><li><a href="fintech.html">FinTech</a></li><li><a href="languages.html">Mandarin</a></li><li><a href="blog.html">Blog</a></li><li><a href="socials.html">Socials</a></li><li><a href="graduate.html">Grad Path</a></li><li><a href="contact.html" class="active nav-cta">Connect</a></li>
+    </ul>
+  </div></nav>
+
+  <section class="page-hero" style="margin-bottom:0;">
+    <div class="page-hero-eyebrow">Get in Touch</div>
+    <h1>Let's <span class="gradient-text">Connect</span></h1>
+    <p>Whether you are a faculty member, researcher, collaborator, fellow veteran, or someone who found my work and wants to talk — I am genuinely interested in the conversation.</p>
+  </section>
+
+  <section class="section-pad" style="margin-top:0;">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div>
+          <div class="section-label" style="margin-bottom:16px;">Send a Message</div>
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-reason">I am reaching out about…</label>
+              <select id="contact-reason" name="reason">
+                <option value="">— Select a topic —</option>
+                <option>Research Collaboration</option>
+                <option>Graduate School / Admission</option>
+                <option>FinTech / Bitcoin</option>
+                <option>Speaking or Conference</option>
+                <option>Nonprofit / Community Work</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" placeholder="Tell me what's on your mind…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message →</button>
+          </form>
+        </div>
+
+        <div>
+          <div class="section-label" style="margin-bottom:16px;">Contact Information</div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📍</div>
+            <div class="contact-info-text">
+              <h4>Location</h4>
+              <p>Savannah, Georgia 31415<br/>SCAD Campus</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">🎓</div>
+            <div class="contact-info-text">
+              <h4>Institution</h4>
+              <p>Savannah College of Art and Design<br/>B Des Applied AI · Class of 2026</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📧</div>
+            <div class="contact-info-text">
+              <h4>Email</h4>
+              <p><a href="mailto:Kendren@proton.me">Kendren@proton.me</a></p>
+            </div>
+          </div>
+
+          <div style="margin-top:40px;">
+            <div class="section-label" style="margin-bottom:20px;">Open To</div>
+            <div class="connect-reason">
+              <h4><span class="icon">🔬</span>Research Collaboration</h4>
+              <p>AI ethics, comparative theology, Mandarin NLP, FinTech ethics</p>
+            </div>
+            <div class="connect-reason">
+              <h4><span class="icon">🎙️</span>Speaking &amp; Panels</h4>
+              <p>AI ethics, veteran perspectives on technology, interdisciplinary scholarship</p>
+            </div>
+            <div class="connect-reason">
+              <h4><span class="icon">🤝</span>Mentorship &amp; Fellowship</h4>
+              <p>Veterans entering tech and academia, first-generation scholars</p>
+            </div>
+            <div class="connect-reason">
+              <h4><span class="icon">₿</span>FinTech &amp; Bitcoin</h4>
+              <p>Ordinals protocol research, Layer 2 analysis, community finance tools</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="container"><div class="footer-inner">
+    <div class="footer-brand"><div class="footer-logo">KC</div><p>Kendren Cornish<br/>SCAD Applied AI · B Des 2026<br/>Savannah, Georgia</p></div>
+    <div class="footer-nav-col"><h5>Work</h5><ul><li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Blog</a></li><li><a href="https://github.com/cornishlikeadam" target="_blank">GitHub</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Identity</h5><ul><li><a href="military.html">Military</a></li><li><a href="nonprofit.html">Nonprofit</a></li><li><a href="languages.html">Mandarin</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Strategy</h5><ul><li><a href="socials.html">Socials</a></li><li><a href="graduate.html">Grad Path</a></li><li><a href="contact.html">Connect</a></li></ul></div>
+  </div><div class="footer-bottom"><p>© 2026 Kendren Cornish.</p><p class="footer-quote">"道可道，非常道" The Tao that can be named is not the eternal Tao.</p></div></div></footer>
+  <script src="main.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type=submit]');
+      btn.textContent = '✓ Message Sent!';
+      btn.style.background = 'linear-gradient(135deg,#7fff6b,#38bdf8)';
+      setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3000);
+    });
+  </script>
+</body>
+</html>

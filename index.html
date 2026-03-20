@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kendren Cornish | Applied AI · Creative Writing · Comparative Theology</title>
+  <meta name="description" content="Portfolio of Kendren Cornish — SCAD Applied AI researcher, veteran, nonprofit leader, FinTech innovator, and comparative theology scholar bridging Eastern and Western thought through artificial intelligence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">KC</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="military.html">Service</a></li>
+        <li><a href="nonprofit.html">Nonprofit</a></li>
+        <li><a href="fintech.html">FinTech</a></li>
+        <li><a href="languages.html">Mandarin</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="socials.html">Socials</a></li>
+        <li><a href="graduate.html">Grad Path</a></li>
+        <li><a href="contact.html" class="nav-cta">Connect</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- NEWSLETTER MODAL -->
+  <div class="newsletter-modal" id="newsletter-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h3>Frontier Updates</h3>
+      <p>Sign up for the newsletter covering technological and theosophical innovation.</p>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:10px;">Subscribe</button>
+      </form>
+      <div id="newsletter-success" style="display:none; color:var(--lime); margin-top:15px; font-weight:600;">Subscribed successfully!</div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero" style="background-image: url('military_photo.jpg'); background-size: cover; background-position: center; border-radius:30px; margin: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+    <div class="hero-bg" style="background: rgba(10,10,12,0.6); backdrop-filter: blur(2px);"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-tag">Applied AI · SCAD 2026</span>
+        <span class="eyebrow-tag">U.S. Army Veteran</span>
+        <span class="eyebrow-tag">FinTech Certified</span>
+      </div>
+      <h1 class="hero-title" style="font-size: clamp(3rem, 8vw, 5rem);">
+        <span class="line-1">Kendren</span>
+        <span class="line-2 gradient-text">Cornish</span>
+      </h1>
+      <div class="hero-rotating-text">
+        <span class="rotating-phrase active">AI Engineer, sometimes funny (人工智能工程师，有时很搞笑)</span>
+        <span class="rotating-phrase">Just a guy asking big questions (只是一个问大问题的人)</span>
+        <span class="rotating-phrase">Probably reading right now (现在可能在看书)</span>
+        <span class="rotating-phrase">Will code for existential meaning (会为了存在的意义而写代码)</span>
+        <span class="rotating-phrase">Combat diver turned keyboard warrior (战斗潜水员变成键盘侠)</span>
+      </div>
+      <p class="hero-desc">
+        Researcher · Engineer · Theologian in Training<br/>
+        Bridging machine learning with comparative philosophy ranging from Judeo Christian to Daoist traditions. I am here to ask the questions that actually matter.
+      </p>
+      <div class="hero-cta-row">
+        <a href="research.html" class="btn btn-primary">Explore Research</a>
+        <a href="socials.html" class="btn btn-ghost">View Socials</a>
+        <button id="newsletter-btn" class="btn btn-outline" style="border-color:var(--gold); color:var(--gold);">Newsletter Sign Up</button>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll down</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+    <div class="hero-chinese-char" aria-hidden="true">道</div>
+  </section>
+
+  <!-- IDENTITY PILLARS -->
+  <section class="pillars section-pad" id="pillars">
+    <div class="container">
+      <div class="section-label">Who I Am</div>
+      <h2 class="section-title">A Rare Convergence of Disciplines</h2>
+      <div class="pillars-grid">
+        <a href="military.html" class="pillar-card" id="pillar-military">
+          <div class="pillar-icon">⚓</div>
+          <h3>Combat Diver</h3>
+          <p>U.S. Army 12 Delta. I specialized in underwater engineering, precision operations, and forged mental fortitude in silence beneath the surface.</p>
+          <span class="pillar-link">View Service →</span>
+        </a>
+        <a href="about.html" class="pillar-card" id="pillar-scad">
+          <div class="pillar-icon">🧠</div>
+          <h3>Applied AI Researcher</h3>
+          <p>SCAD Applied AI + Creative Writing Minor started 2026. I am designing intelligent systems that interrogate the precise nature of consciousness.</p>
+          <span class="pillar-link">About Me →</span>
+        </a>
+        <a href="nonprofit.html" class="pillar-card" id="pillar-nonprofit">
+          <div class="pillar-icon">🌱</div>
+          <h3>Nonprofit Leader</h3>
+          <p>I dedicated two years of service driven work to community uplift, mental health advocacy, and human dignity as the foundation of technology ethics.</p>
+          <span class="pillar-link">View Work →</span>
+        </a>
+        <a href="fintech.html" class="pillar-card" id="pillar-fintech">
+          <div class="pillar-icon">₿</div>
+          <h3>FinTech Innovator</h3>
+          <p>SMU Financial Technology Certificate. I research Bitcoin Layer 2 and Ordinal protocols to ask where decentralized finance meets sovereign identity.</p>
+          <span class="pillar-link">View FinTech →</span>
+        </a>
+        <a href="languages.html" class="pillar-card" id="pillar-mandarin">
+          <div class="pillar-icon">語</div>
+          <h3>Mandarin Scholar</h3>
+          <p>Category IV language acquisition. I am unlocking Eastern classical texts in their original voice by tackling the hardest tier for native English speakers.</p>
+          <span class="pillar-link">Language Journey →</span>
+        </a>
+        <a href="research.html" class="pillar-card" id="pillar-theology">
+          <div class="pillar-icon">✦</div>
+          <h3>Comparative Theologian</h3>
+          <p>I explore the ethics and spirituality of AI through Western Judeo Christian frameworks set alongside Daoist, Confucian, and Chinese Buddhist thought.</p>
+          <span class="pillar-link">View Research →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNICORN PITCH -->
+  <section class="unicorn section-pad" id="unicorn">
+    <div class="container">
+      <div class="unicorn-inner">
+        <div class="unicorn-text">
+          <div class="section-label">The Intersection</div>
+          <h2 class="section-title">A Geopolitical, Linguistic &amp; Technological Unicorn</h2>
+          <p>The U.S. State Department designates Mandarin as a Category IV language meaning it is the absolute hardest tier for native English speakers. I pair this with Applied AI and comparative theology to create a research focus that no standard philosophy or divinity school applicant can replicate:</p>
+          <blockquote class="pull-quote">
+            "I study the ethics and theology of Artificial Intelligence by comparing Western Judeo Christian frameworks with Eastern philosophies in their original texts like Daoism, Confucianism, and Chinese Buddhism to ask whether consciousness, meaning, and spiritual experience can be replicated or understood computationally."
+          </blockquote>
+          <a href="graduate.html" class="btn btn-primary">See My Graduate Strategy</a>
+        </div>
+        <div class="unicorn-visual">
+          <div class="venn-wrapper">
+            <div class="venn-circle v1"><span>Applied<br/>AI</span></div>
+            <div class="venn-circle v2"><span>Eastern<br/>Philosophy</span></div>
+            <div class="venn-circle v3"><span>Creative<br/>Writing</span></div>
+            <div class="venn-center"><span>Me</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED RESEARCH -->
+  <section class="featured-research section-pad" id="featured-research">
+    <div class="container">
+      <div class="section-label">Featured Work</div>
+      <h2 class="section-title">Research &amp; Projects</h2>
+      <div class="cards-grid">
+        <article class="research-card featured" id="card-great-books">
+          <div class="card-tag">AI Project · In Progress</div>
+          <h3>The Great Books Semantic Engine</h3>
+          <p>An LLM-powered knowledge graph that cross-references Western philosophical canon with Daoist and Buddhist classical texts, making comparative theology accessible to modern researchers.</p>
+          <div class="card-tags-row">
+            <span class="tag">NLP</span><span class="tag">Knowledge Graphs</span><span class="tag">Comparative Theology</span>
+          </div>
+          <a href="projects.html#great-books" class="card-link">Read More →</a>
+        </article>
+
+        <article class="research-card" id="card-algo-consciousness">
+          <div class="card-tag">Thesis · In Development</div>
+          <h3>Algorithmic Consciousness Mapping</h3>
+          <p>A long-form academic thesis exploring how machine learning categorizes human consciousness — contrasting Western computational models with Eastern frameworks of the mind.</p>
+          <div class="card-tags-row">
+            <span class="tag">AI Ethics</span><span class="tag">Buddhist Philosophy</span><span class="tag">ML Theory</span>
+          </div>
+          <a href="projects.html#algo-consciousness" class="card-link">Read More →</a>
+        </article>
+
+        <article class="research-card" id="card-lords-prayer">
+          <div class="card-tag">Essay · Published</div>
+          <h3>The Lord's Prayer &amp; 仁: A Linguistic Parallel</h3>
+          <p>A comparative theological essay examining structural and semantic equivalences between Christian prayer traditions and Confucian ethical texts — in English and Mandarin.</p>
+          <div class="card-tags-row">
+            <span class="tag">Mandarin</span><span class="tag">Comparative Religion</span><span class="tag">Creative Writing</span>
+          </div>
+          <a href="blog.html#lords-prayer" class="card-link">Read Essay →</a>
+        </article>
+
+        <article class="research-card" id="card-bitcoin">
+          <div class="card-tag">Research · FinTech</div>
+          <h3>Bitcoin Ordinals &amp; Digital Sovereignty</h3>
+          <p>Analysis of Layer 2 Bitcoin assets and Ordinal protocols as instruments of decentralized identity and sovereign financial systems in underserved communities.</p>
+          <div class="card-tags-row">
+            <span class="tag">Bitcoin</span><span class="tag">Layer 2</span><span class="tag">FinTech</span>
+          </div>
+          <a href="fintech.html#ordinals" class="card-link">Read More →</a>
+        </article>
+      </div>
+      <div class="center-btn">
+        <a href="projects.html" class="btn btn-outline">View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG PREVIEW -->
+  <section class="blog-preview section-pad" id="blog-preview">
+    <div class="container">
+      <div class="section-label">Writing</div>
+      <h2 class="section-title">Essays &amp; Scholarship</h2>
+      <div class="blog-list">
+        <a href="blog.html#lords-prayer" class="blog-item" id="blog-1">
+          <div class="blog-num">01</div>
+          <div class="blog-info">
+            <span class="blog-category">Comparative Theology</span>
+            <h4>父我们的在天上 — Finding the Lord's Prayer in Confucian Thought</h4>
+            <p>A 15-page exploration of the structural resonance between the Pater Noster and the Analects of Confucius, using original Mandarin texts.</p>
+          </div>
+          <div class="blog-arrow">→</div>
+        </a>
+        <a href="blog.html#dao-of-ai" class="blog-item" id="blog-2">
+          <div class="blog-num">02</div>
+          <div class="blog-info">
+            <span class="blog-category">AI Ethics</span>
+            <h4>The Dao of Artificial Intelligence: Can a Machine Have Wu Wei?</h4>
+            <p>Examining the Daoist principle of effortless action through the lens of neural network optimization — and what it reveals about machine learning's philosophical limits.</p>
+          </div>
+          <div class="blog-arrow">→</div>
+        </a>
+        <a href="blog.html#humanity-meets-ai" class="blog-item" id="blog-3">
+          <div class="blog-num">03</div>
+          <div class="blog-info">
+            <span class="blog-category">Harvard · Faculty Engagement</span>
+            <h4>Engaging the "Humanity Meets AI" Symposium at Harvard Divinity</h4>
+            <p>My engagement with HDS scholars on the Religion and Public Life program and its intersection with AI epistemology and digital consciousness.</p>
+          </div>
+          <div class="blog-arrow">→</div>
+        </a>
+        <a href="blog.html#princeton-theology" class="blog-item" id="blog-4">
+          <div class="blog-num">04</div>
+          <div class="blog-info">
+            <span class="blog-category">Princeton · Research</span>
+            <h4>Faith and AI Cohorts: Princeton's Center for Theology, Science &amp; Human Flourishing</h4>
+            <p>Tracing my research alignment with Princeton faculty working at the intersection of theology and artificial intelligence.</p>
+          </div>
+          <div class="blog-arrow">→</div>
+        </a>
+      </div>
+      <div class="center-btn">
+        <a href="blog.html" class="btn btn-outline">Read All Essays</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRAD TARGETS -->
+  <section class="grad-targets section-pad" id="grad-targets">
+    <div class="container">
+      <div class="section-label">4-Year Strategy</div>
+      <h2 class="section-title">Graduate School Targets</h2>
+      <div class="schools-row">
+        <div class="school-card" id="school-harvard">
+          <div class="school-logo-placeholder">H</div>
+          <h4>Harvard Divinity</h4>
+          <span class="odds">MTS · ~20–25%</span>
+          <p>Religion &amp; Public Life · Humanity Meets AI Symposium</p>
+        </div>
+        <div class="school-card" id="school-princeton">
+          <div class="school-logo-placeholder">P</div>
+          <h4>Princeton Theological</h4>
+          <span class="odds">MTS · Target</span>
+          <p>Center for Theology, Science &amp; Human Flourishing</p>
+        </div>
+        <div class="school-card" id="school-yale">
+          <div class="school-logo-placeholder">Y</div>
+          <h4>Yale Divinity</h4>
+          <span class="odds">MAR · Target</span>
+          <p>Digital Humanities · Ethics of Material Culture</p>
+        </div>
+        <div class="school-card" id="school-uchicago">
+          <div class="school-logo-placeholder">UC</div>
+          <h4>U Chicago Divinity</h4>
+          <span class="odds">MA · ~30%</span>
+          <p>Intense intellectualism · AI epistemology focus</p>
+        </div>
+        <div class="school-card" id="school-stanford">
+          <div class="school-logo-placeholder">S</div>
+          <h4>Stanford</h4>
+          <span class="odds">Target</span>
+          <p>HAI · Human-Centered AI &amp; Ethics</p>
+        </div>
+      </div>
+      <div class="center-btn">
+        <a href="graduate.html" class="btn btn-primary">Full Admissions Strategy</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BANNER -->
+  <section class="stats-banner" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Years of Strategic Execution</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Target Elite Programs</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Years Nonprofit Service</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Disciplines Mastered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">語</div>
+          <div class="stat-label">Mandarin — Category IV</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">KC</div>
+          <p>Kendren Cornish<br/>SCAD Applied AI · B Des 2026<br/>Savannah, Georgia</p>
+        </div>
+        <div class="footer-nav-col">
+          <h5>Work</h5>
+          <ul>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog & Essays</a></li>
+            <li><a href="fintech.html">FinTech</a></li>
+            <li><a href="https://github.com/cornishlikeadam" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h5>Identity</h5>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="military.html">Military Service</a></li>
+            <li><a href="nonprofit.html">Nonprofit</a></li>
+            <li><a href="languages.html">Mandarin Journey</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h5>Strategy</h5>
+          <ul>
+            <li><a href="graduate.html">Grad School Path</a></li>
+            <li><a href="contact.html">Connect</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Kendren Cornish. Built as a living document of a life in progress.</p>
+        <p class="footer-quote">"道可道，非常道" The Tao that can be named is not the eternal Tao.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

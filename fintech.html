@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinTech — Kendren Cornish</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .fintech-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:40px 0; }
+    @media(max-width:640px){.fintech-grid{grid-template-columns:1fr;}}
+    .fintech-card { background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius); padding:28px; transition:var(--transition); }
+    .fintech-card:hover { border-color:var(--accent-1); transform:translateY(-4px); }
+    .fintech-card h3 { font-family:var(--font-display); font-size:1.15rem; font-weight:600; margin-bottom:10px; color:var(--text); }
+    .fintech-card p { color:var(--text-2); font-size:14px; line-height:1.7; }
+    .fintech-card .card-tag { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+    .cert-badge { display:inline-flex; align-items:center; gap:12px; background:linear-gradient(135deg,rgba(255,215,0,0.08),rgba(167,139,250,0.08)); border:1px solid rgba(255,215,0,0.2); border-radius:var(--radius); padding:20px 28px; margin:24px 0; }
+    .cert-badge .icon { font-size:2rem; }
+    .cert-badge .info h4 { font-family:var(--font-display); font-weight:600; margin-bottom:4px; }
+    .cert-badge .info p { font-size:13px; color:var(--text-2); margin:0; }
+  </style>
+</head>
+<body>
+  <nav id="main-nav"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">KC</a>
+    <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li><li><a href="military.html">Service</a></li><li><a href="nonprofit.html">Nonprofit</a></li><li><a href="fintech.html" class="active">FinTech</a></li><li><a href="languages.html">Mandarin</a></li><li><a href="blog.html">Blog</a></li><li><a href="socials.html">Socials</a></li><li><a href="graduate.html">Grad Path</a></li><li><a href="contact.html" class="nav-cta">Connect</a></li>
+    </ul>
+  </div></nav>
+
+  <section class="page-hero">
+    <div class="page-hero-eyebrow">Financial Technology · SMU · Bitcoin</div>
+    <h1>Decentralized <span class="gradient-text">Finance &amp; Sovereignty</span></h1>
+    <p>Where cryptographic architecture meets ethical finance — my work explores Bitcoin, Layer 2 protocols, and digital asset sovereignty as tools of community empowerment.</p>
+  </section>
+
+  <section class="prose-section section-pad">
+    <div class="container">
+
+      <div class="cert-badge">
+        <div class="icon">🎓</div>
+        <div class="info">
+          <h4>Financial Technology Certificate</h4>
+          <p>Southern Methodist University (SMU) · Completed 2024<br/>Blockchain · DeFi · Digital Asset Policy · AI in Finance</p>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2>Why FinTech?</h2>
+        <p>The relationship between money, power, and access has always been a moral issue before it was a technical one. The communities I served in the nonprofit sector were not underbanked by accident. They were excluded by design — by credit scoring algorithms, by geographic redlining encoded into data systems, by a financial infrastructure that optimizes for the already-wealthy.</p>
+        <p>Financial technology, at its best, is a wrench thrown into that machinery. Bitcoin and the protocols being built on top of it offer, for the first time in history, a genuinely permissionless, non-confiscatable financial layer. This is not speculative idealism. It is an engineering fact — and an ethical opportunity.</p>
+
+        <h2>Core Research Areas</h2>
+      </div>
+
+      <div class="fintech-grid">
+        <div class="fintech-card" id="card-ordinals">
+          <div class="card-tag">Bitcoin Layer 1</div>
+          <h3>Bitcoin Ordinals &amp; Inscriptions</h3>
+          <p>Research into the Ordinals protocol — the system enabling arbitrary data inscription onto individual satoshis — and its implications for digital ownership, identity, and decentralized creative economies.</p>
+        </div>
+        <div class="fintech-card" id="card-layer2">
+          <div class="card-tag">Bitcoin Layer 2</div>
+          <h3>Layer 2 Scaling Protocols</h3>
+          <p>Analysis of Lightning Network, Ark, and RGB Layer 2 solutions for Bitcoin. Submitted protocol improvement commentary and engaged directly with developer communities on ordinal asset standards.</p>
+        </div>
+        <div class="fintech-card" id="card-sovereignty">
+          <div class="card-tag">Ethical Finance</div>
+          <h3>Digital Sovereignty &amp; Wealth Preservation</h3>
+          <p>Research on non-confiscatable wealth structures — Bitcoin as sound money, family trust architectures, and private placement strategies for communities historically excluded from generational wealth.</p>
+        </div>
+        <div class="fintech-card" id="card-ai-finance">
+          <div class="card-tag">AI + Finance</div>
+          <h3>AI-Powered Financial Inclusion Tools</h3>
+          <p>Concept and early development of LLM-powered tools for financial literacy — making complex asset structures, DeFi protocols, and tax-advantaged strategies accessible to underserved communities.</p>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="ordinals">Bitcoin Ordinals: Protocol Submissions</h2>
+        <p>My engagement with the Bitcoin development community goes beyond passive study. I have submitted improvement requests and commentary on specific ordinal and Layer 2 asset standards, engaging with the technical questions of inscription permanence, provenance verification, and the ethical dimensions of digital scarcity.</p>
+        <p>This work is ongoing. As these protocols evolve, I am tracking their implications for digital creative economies — a direct intersection with my SCAD background in design and my AI research practice.</p>
+
+        <div class="callout-banner">
+          <h3>The Theological Dimension of Sound Money</h3>
+          <p>One of the most underexplored intersections in my research agenda is the relationship between Bitcoin's fixed supply, the concept of stewardship in Judeo-Christian ethics, and the Confucian principle of <em>zhengming</em> (正名) — the rectification of names. What does it mean for money to be honest? What is the moral weight of a currency that cannot be inflated away? These questions sit at the edge of FinTech, philosophy, and theology — precisely where I work.</p>
+        </div>
+
+        <h2>External Projects &amp; Links</h2>
+        <p>The following are live and developing projects. Links will be updated as projects launch:</p>
+      </div>
+
+      <a href="#" class="link-card" id="link-fintech-1">
+        <div class="link-card-icon">₿</div>
+        <div class="link-card-info"><h4>Bitcoin Ordinal Research Notes</h4><p>Personal GitHub repository — inscription analysis and Layer 2 commentary</p></div>
+        <div class="link-card-arrow">→</div>
+      </a>
+      <a href="#" class="link-card" id="link-fintech-2">
+        <div class="link-card-icon">📄</div>
+        <div class="link-card-info"><h4>SMU FinTech Certificate Portfolio</h4><p>Coursework, capstone projects, and research produced during certification</p></div>
+        <div class="link-card-arrow">→</div>
+      </a>
+      <a href="#" class="link-card" id="link-fintech-3">
+        <div class="link-card-icon">🔗</div>
+        <div class="link-card-info"><h4>AI Financial Literacy Tool — Prototype</h4><p>Early-stage LLM interface for decentralized finance education</p></div>
+        <div class="link-card-arrow">→</div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="container"><div class="footer-inner">
+    <div class="footer-brand"><div class="footer-logo">KC</div><p>Kendren Cornish<br/>SCAD Applied AI · B Des 2026<br/>Savannah, Georgia</p></div>
+    <div class="footer-nav-col"><h5>Work</h5><ul><li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Blog</a></li><li><a href="https://github.com/cornishlikeadam" target="_blank">GitHub</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Identity</h5><ul><li><a href="military.html">Military</a></li><li><a href="nonprofit.html">Nonprofit</a></li><li><a href="languages.html">Mandarin</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Strategy</h5><ul><li><a href="socials.html">Socials</a></li><li><a href="graduate.html">Grad Path</a></li><li><a href="contact.html">Connect</a></li></ul></div>
+  </div><div class="footer-bottom"><p>© 2026 Kendren Cornish.</p><p class="footer-quote">"道可道，非常道" The Tao that can be named is not the eternal Tao.</p></div></div></footer>
+  <script src="main.js"></script>
+</body>
+</html>

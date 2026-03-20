@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graduate School Path — Kendren Cornish</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .school-full { background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius); padding:36px; margin-bottom:20px; transition:var(--transition); }
+    .school-full:hover { border-color:var(--border-hover); transform:translateX(4px); }
+    .school-full .school-header { display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:16px; }
+    .school-full h3 { font-family:var(--font-display); font-size:1.3rem; font-weight:700; }
+    .odds-badge { font-size:13px; font-weight:700; color:var(--gold); background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.2); padding:6px 14px; border-radius:50px; white-space:nowrap; }
+    .school-full p { color:var(--text-2); font-size:14px; line-height:1.8; }
+    .school-full .program-tag { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-2); margin-bottom:8px; }
+    .pill-grid { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0; }
+    .pill { font-size:12px; padding:5px 14px; border-radius:50px; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.2); color:var(--accent-1); }
+    .strategy-step { display:grid; grid-template-columns:48px 1fr; gap:20px; padding:24px 0; border-bottom:1px solid var(--border); align-items:start; }
+    .step-num { width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--accent-1),var(--accent-2)); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:#fff; flex-shrink:0; }
+    .step-content h4 { font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin-bottom:8px; }
+    .step-content p { font-size:14px; color:var(--text-2); line-height:1.7; }
+  </style>
+</head>
+<body>
+  <nav id="main-nav"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">KC</a>
+    <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li><li><a href="military.html">Service</a></li><li><a href="nonprofit.html">Nonprofit</a></li><li><a href="fintech.html">FinTech</a></li><li><a href="languages.html">Mandarin</a></li><li><a href="blog.html">Blog</a></li><li><a href="socials.html">Socials</a></li><li><a href="graduate.html" class="active">Grad Path</a></li><li><a href="contact.html" class="nav-cta">Connect</a></li>
+    </ul>
+  </div></nav>
+
+  <section class="page-hero">
+    <div class="page-hero-eyebrow">4-Year Strategy · 2026–2030</div>
+    <h1>The <span class="gradient-text">Graduate Path</span></h1>
+    <p>Elite graduate admissions is not a lottery. It is a calculable, high-probability outcome when I systematically eliminate the variables that lead to rejection and aggressively stack the multiplier achievements that admissions committees cannot ignore.</p>
+  </section>
+
+  <section class="prose-section section-pad">
+    <div class="container">
+
+      <div class="callout-banner" style="margin-bottom:48px;">
+        <h3>The Three Pillars</h3>
+        <p>Every decision I make over the next four years maps to one of three pillars: <strong>Academic Signal</strong> (GPA 3.5+, writing-heavy humanities coursework), <strong>Portfolio as Weapon</strong> (3–5 publishable essays + 1 functional AI project + 1 "big idea" thesis), and <strong>Narrative Clarity</strong> (every piece answers: <em>"Why AI → Why theology?"</em>).</p>
+      </div>
+
+      <div class="section-label">Target Programs</div>
+      <h2 class="section-title">School-by-School Strategy</h2>
+
+      <div class="school-full" id="target-harvard">
+        <div class="school-header">
+          <div>
+            <div class="program-tag">Harvard Divinity School</div>
+            <h3>Master of Theological Studies (MTS)</h3>
+          </div>
+          <span class="odds-badge">~20–25% Odds</span>
+        </div>
+        <p><strong>Why HDS:</strong> Harvard's MTS program is surprisingly open to unique backgrounds, provided the writing sample is flawless. Positioning as a scholar exploring "Ethics of AI and Religion" or "Digital Consciousness" gives a unique edge over thousands of standard philosophy majors.</p>
+        <p><strong>Faculty Target:</strong> Scholars involved in the Religion and Public Life program, specifically those who led the "Humanity Meets AI" symposiums. My strategy is to correspond directly with 2–3 faculty members before applying, referencing specific papers and proposing a research contribution.</p>
+        <div class="pill-grid">
+          <span class="pill">Religion &amp; Public Life Program</span>
+          <span class="pill">Humanity Meets AI Symposium</span>
+          <span class="pill">AI Ethics Research</span>
+          <span class="pill">Writing Sample: 15–25 pages</span>
+        </div>
+      </div>
+
+      <div class="school-full" id="target-princeton">
+        <div class="school-header">
+          <div>
+            <div class="program-tag">Princeton Theological Seminary</div>
+            <h3>Master of Theological Studies (MTS)</h3>
+          </div>
+          <span class="odds-badge">Target Program</span>
+        </div>
+        <p><strong>Why Princeton:</strong> The Center for Theology, Science, and Human Flourishing is building exactly the kind of interdisciplinary program my research is designed to enter. The "Faith and AI" cohorts represent a structured community I want to join and contribute to.</p>
+        <p><strong>Faculty Target:</strong> Faculty involved in the Center for Theology, Science, and Human Flourishing and those associated with Faith and AI research cohorts. Goal: present at one of their conferences or seminars before application.</p>
+        <div class="pill-grid">
+          <span class="pill">Center for Theology &amp; Science</span>
+          <span class="pill">Faith and AI Cohorts</span>
+          <span class="pill">Human Flourishing Research</span>
+        </div>
+      </div>
+
+      <div class="school-full" id="target-yale">
+        <div class="school-header">
+          <div>
+            <div class="program-tag">Yale Divinity School</div>
+            <h3>Master of Arts in Religion (MAR)</h3>
+          </div>
+          <span class="odds-badge">Target Program</span>
+        </div>
+        <p><strong>Why Yale:</strong> Yale's MAR offers unique flexibility for interdisciplinary work. Faculty researching digital humanities and the ethics of material culture are directly relevant to my research on the ontological status of digital objects and AI-generated content in theological frameworks.</p>
+        <p><strong>Faculty Target:</strong> Scholars researching digital humanities and the ethics of material culture — particularly those working on how religious communities navigate artificial intelligence and digital transformation.</p>
+        <div class="pill-grid">
+          <span class="pill">Digital Humanities</span>
+          <span class="pill">Ethics of Material Culture</span>
+          <span class="pill">MAR Program Flexibility</span>
+        </div>
+      </div>
+
+      <div class="school-full" id="target-uchicago">
+        <div class="school-header">
+          <div>
+            <div class="program-tag">University of Chicago Divinity School</div>
+            <h3>Master of Arts (MA)</h3>
+          </div>
+          <span class="odds-badge">~30% Odds</span>
+        </div>
+        <p><strong>Why UChicago:</strong> UChicago loves intense, unorthodox intellectualism. If my AI research tools are fully functional and accompanied by a brilliant essay on the epistemology of artificial intelligence, they will look past the B Des degree and focus on raw academic potential.</p>
+        <p><strong>The Play:</strong> Lead with the technical project. Show a functioning Great Books Semantic Engine. Then show the theological essay. The combination is irresistible for a school that prizes the intersection of rigorous scholarship and novel methodology.</p>
+        <div class="pill-grid">
+          <span class="pill">Unorthodox Intellectualism</span>
+          <span class="pill">AI Epistemology Essay</span>
+          <span class="pill">Technical + Theological</span>
+        </div>
+      </div>
+
+      <div class="school-full" id="target-stanford">
+        <div class="school-header">
+          <div>
+            <div class="program-tag">Stanford University</div>
+            <h3>HAI / Comparative Religion</h3>
+          </div>
+          <span class="odds-badge">Reach Program</span>
+        </div>
+        <p><strong>Why Stanford:</strong> Stanford's Human-Centered AI Institute (HAI) is the premier institution in the world for AI ethics research with genuine interdisciplinary reach. A joint application targeting HAI and comparative religion or philosophy would be unprecedented — and for that reason, potentially compelling.</p>
+        <div class="pill-grid">
+          <span class="pill">Stanford HAI</span>
+          <span class="pill">Human-Centered AI</span>
+          <span class="pill">Interdisciplinary Ethics</span>
+        </div>
+      </div>
+
+      <div class="section-label" style="margin-top:64px;">Execution Plan</div>
+      <h2 class="section-title">The 4-Year Action Plan</h2>
+
+      <div class="strategy-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Academic Foundation (Year 1–2): GPA 3.5+ &amp; Writing Chops</h4>
+          <p>Max out humanities electives: Existential Philosophy, Art History, Literature, Ethics. Every AI studio class where documentation is optional — I write 15+ pages instead. Begin independent Mandarin study (Duolingo + tutors + HSK prep). Target GPA: 3.7+.</p>
+        </div>
+      </div>
+      <div class="strategy-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Portfolio Construction (Year 2–3): Build the Weapon</h4>
+          <p>Complete Version 1 of the Great Books Semantic Engine. Write and workshop 3–5 academic essays (Lord's Prayer &amp; Confucianism, Dao of AI, AI Ethics in Military Context, Bitcoin &amp; Stewardship). Begin the Algorithmic Consciousness thesis. Submit 1 conference presentation.</p>
+        </div>
+      </div>
+      <div class="strategy-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Faculty Engagement (Year 3): Build Relationships Before Applications</h4>
+          <p>Correspond directly with target faculty at Harvard, Princeton, Yale, and UChicago. Reference specific published work. Propose a small research contribution or collaboration. Present at at least one academic conference in theology, AI ethics, or religious studies. Get 2 strong recommendation letters — at least 1 from a writing/philosophy professor.</p>
+        </div>
+      </div>
+      <div class="strategy-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Application Year (Year 4): Execute with Precision</h4>
+          <p>Apply to 6–8 programs. Tailor every statement of purpose to the specific faculty and research agenda of each program. Submit a 20–25 page writing sample polished to publication standard. The portfolio website (this site) serves as a living supplement — every admissions reader will be directed here.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="container"><div class="footer-inner">
+    <div class="footer-brand"><div class="footer-logo">KC</div><p>Kendren Cornish<br/>SCAD Applied AI · B Des 2026<br/>Savannah, Georgia</p></div>
+    <div class="footer-nav-col"><h5>Work</h5><ul><li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Blog</a></li><li><a href="https://github.com/cornishlikeadam" target="_blank">GitHub</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Identity</h5><ul><li><a href="military.html">Military</a></li><li><a href="nonprofit.html">Nonprofit</a></li><li><a href="languages.html">Mandarin</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Strategy</h5><ul><li><a href="socials.html">Socials</a></li><li><a href="graduate.html">Grad Path</a></li><li><a href="contact.html">Connect</a></li></ul></div>
+  </div><div class="footer-bottom"><p>© 2026 Kendren Cornish.</p><p class="footer-quote">"道可道，非常道" The Tao that can be named is not the eternal Tao.</p></div></div></footer>
+  <script src="main.js"></script>
+</body>
+</html>

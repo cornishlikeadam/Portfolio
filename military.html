@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Military Service — Kendren Cornish</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .mil-stats { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:20px; margin:40px 0; }
+    .mil-stat { background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius); padding:28px 20px; text-align:center; }
+    .mil-stat .num { font-family:var(--font-display); font-size:2.5rem; font-weight:700; background:linear-gradient(135deg,var(--accent-1),var(--accent-2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .mil-stat .label { font-size:12px; color:var(--text-2); margin-top:6px; }
+    .service-badge { display:inline-flex; align-items:center; gap:10px; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.2); border-radius:50px; padding:10px 20px; font-size:13px; font-weight:600; color:var(--text); margin-bottom:8px; }
+  </style>
+</head>
+<body>
+  <nav id="main-nav"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">KC</a>
+    <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li><li><a href="military.html" class="active">Service</a></li><li><a href="nonprofit.html">Nonprofit</a></li><li><a href="fintech.html">FinTech</a></li><li><a href="languages.html">Mandarin</a></li><li><a href="blog.html">Blog</a></li><li><a href="socials.html">Socials</a></li><li><a href="graduate.html">Grad Path</a></li><li><a href="contact.html" class="nav-cta">Connect</a></li>
+    </ul>
+  </div></nav>
+
+  <section class="page-hero">
+    <div class="page-hero-eyebrow">United States Army</div>
+    <h1>Service &amp; <span class="gradient-text">Sacrifice</span></h1>
+    <p>Before the algorithms, there was silence underwater. The discipline forged in the Army — precision under pressure, mission before self — is the operating system behind everything I build.</p>
+  </section>
+
+  <section class="prose-section section-pad">
+    <div class="container">
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:40px;">
+        <div class="service-badge">⚓ U.S. Army Combat Diver</div>
+        <div class="service-badge">🔧 12 Delta — Combat Engineer</div>
+        <div class="service-badge">🏅 Honorably Separated</div>
+      </div>
+
+      <div class="mil-stats">
+        <div class="mil-stat"><div class="num">⚓</div><div class="label">Combat Diver Qualified</div></div>
+        <div class="mil-stat"><div class="num">12Δ</div><div class="label">MOS — Combat Engineer</div></div>
+        <div class="mil-stat"><div class="num">∞</div><div class="label">Meters Below the Surface</div></div>
+        <div class="mil-stat"><div class="num">I</div><div class="label">Honorable Separation</div></div>
+      </div>
+
+      <div class="prose">
+        <h2>The Combat Diver: Where Engineering Meets Silence</h2>
+        <p>The U.S. Army Combat Diver qualification is one of the most demanding courses in the entire military training system. It requires mastery of underwater navigation, combat swimming, closed-circuit diving, underwater demolitions, and the ability to perform precision engineering operations in zero-visibility environments — often at night, often under hostile conditions.</p>
+        <p>As a <strong>12 Delta (Combat Engineer)</strong>, my primary MOS combined traditional combat engineering — breaching, emplacing obstacles, route clearance, bridge construction — with the specialized underwater dimension of Combat Diver operations. This meant that I was responsible for applying engineering principles in the one environment where a design flaw cannot be corrected after you're already 30 meters down.</p>
+
+        <blockquote>"What the military taught me is not discipline in the way civilians imagine it — rigid and mechanical. It taught me that discipline is a form of respect for the complexity of reality. You are not fighting nature underwater; you are negotiating with it."</blockquote>
+
+        <h2>The Mathematics of Diving</h2>
+        <p>Military diving is a deeply mathematical practice. Decompression theory, gas laws (Boyle's, Henry's, Dalton's), nitrogen narcosis thresholds, current calculations, tide prediction, and underwater navigation via compass and distance all require real-time computation under physical and psychological stress. This early, embodied relationship with applied mathematics directly shaped my approach to machine learning: algorithms, like diving plans, must account for failure modes before they occur.</p>
+
+        <h2>What Service Gave Me</h2>
+        <p>My military service gave me three things that no academic program can instill. First, <strong>a tolerance for ambiguity under pressure</strong> — the same mental posture required to debug a failing model at 2 a.m. or to defend a thesis before a hostile committee. Second, <strong>a systems-level instinct</strong> — the ability to see how individual components interact within a larger whole, whether that whole is a bridge, a unit, or a neural network. Third, <strong>a moral seriousness</strong> — a deep, lived understanding that technology — like ordnance — is morally neutral until a human decides how to use it.</p>
+
+        <h2>Photo Gallery</h2>
+        <p style="color:var(--text-2);margin-bottom:24px;">Military service photos from my time as a 12 Delta and Combat Diver.</p>
+        <div class="photo-grid">
+          <div class="photo-uploaded">
+            <img src="military_photo.jpg" alt="Kendren Cornish - U.S. Army Service" />
+          </div>
+          <div class="photo-slot" id="mil-photo-2">
+            <div class="icon">⚓</div>
+            <strong>Combat Diver Training</strong>
+            <p>Dive qualification, underwater operations</p>
+          </div>
+          <div class="photo-slot" id="mil-photo-3">
+            <div class="icon">🔧</div>
+            <strong>12 Delta Operations</strong>
+            <p>Combat engineer field operations</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="container"><div class="footer-inner">
+    <div class="footer-brand"><div class="footer-logo">KC</div><p>Kendren Cornish<br/>SCAD Applied AI · B Des 2026<br/>Savannah, Georgia</p></div>
+    <div class="footer-nav-col"><h5>Work</h5><ul><li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Blog</a></li><li><a href="https://github.com/cornishlikeadam" target="_blank">GitHub</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Identity</h5><ul><li><a href="military.html">Military</a></li><li><a href="nonprofit.html">Nonprofit</a></li><li><a href="languages.html">Mandarin</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Strategy</h5><ul><li><a href="socials.html">Socials</a></li><li><a href="graduate.html">Grad Path</a></li><li><a href="contact.html">Connect</a></li></ul></div>
+  </div><div class="footer-bottom"><p>© 2026 Kendren Cornish.</p><p class="footer-quote">"道可道，非常道" The Tao that can be named is not the eternal Tao.</p></div></div></footer>
+  <script src="main.js"></script>
+</body>
+</html>
