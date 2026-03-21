@@ -1,0 +1,8 @@
+# Exclude large binary files that exceed Vercel's 100MB per-file limit
+Nonprofit_photos.pdf
+nonprofit_photos/
+*.pdf
+
+# Exclude git and editor artifacts
+.git/
+.DS_Store
