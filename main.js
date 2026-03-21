@@ -62,6 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
   ).join('');
   document.body.appendChild(nav);
 
+  // Inject real gradient hint div (pseudo-elements can't be fixed inside fixed)
+  const hint = document.createElement('div');
+  hint.className = 'nav-scroll-hint';
+  document.body.appendChild(hint);
+
+  // Hide gradient when scrolled to the end
+  nav.addEventListener('scroll', () => {
+    const atEnd = nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 4;
+    hint.style.opacity = atEnd ? '0' : '1';
+  }, { passive: true });
+
   // Auto-scroll active tab into centre view
   requestAnimationFrame(() => {
     const active = nav.querySelector('a.active');
@@ -69,6 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const offset = active.offsetLeft - (nav.offsetWidth / 2) + (active.offsetWidth / 2);
       nav.scrollTo({ left: offset, behavior: 'instant' });
     }
+    // Re-check hint after centering
+    const atEnd = nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 4;
+    hint.style.opacity = atEnd ? '0' : '1';
   });
 
   // PWA Install Banner

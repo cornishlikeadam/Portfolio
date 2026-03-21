@@ -979,53 +979,60 @@ a, button { -webkit-tap-highlight-color: transparent; }
   z-index: 1001;
   background: rgba(17,19,21,0.97);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--border);
-  padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
+  padding: 0;
+  padding-bottom: env(safe-area-inset-bottom);
   /* Scrollable row */
   flex-direction: row;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
   scroll-snap-type: x proximity;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+  white-space: nowrap;
 }
-.mobile-bottom-nav::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+.mobile-bottom-nav::-webkit-scrollbar { display: none; }
 .mobile-bottom-nav a {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  padding: 6px 12px;
+  gap: 2px;
+  padding: 8px 14px;
   color: var(--text-3);
   text-decoration: none;
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  transition: var(--transition);
-  min-height: 52px;
-  min-width: 60px;
+  transition: color 0.2s, background 0.2s;
+  min-height: 56px;
+  min-width: 64px;
   justify-content: center;
   flex-shrink: 0;
   scroll-snap-align: start;
+  vertical-align: top;
+  white-space: normal;
+  text-align: center;
   border-right: 1px solid rgba(255,255,255,0.04);
 }
-.mobile-bottom-nav a:last-child { border-right: none; padding-right: 20px; }
-.mobile-bottom-nav a span.nav-icon { font-size: 1.2rem; line-height: 1; }
+.mobile-bottom-nav a:last-child { border-right: none; padding-right: 24px; }
+.mobile-bottom-nav a span.nav-icon { font-size: 1.3rem; line-height: 1; display: block; }
 .mobile-bottom-nav a.active,
-.mobile-bottom-nav a:hover { color: var(--gold); background: rgba(201,176,122,0.06); }
-.mobile-bottom-nav a.active .nav-icon { transform: scale(1.15); }
-/* Subtle scroll hint gradient on right edge */
-.mobile-bottom-nav::after {
-  content: '';
+.mobile-bottom-nav a:hover { color: var(--gold); background: rgba(201,176,122,0.07); }
+.mobile-bottom-nav a.active span.nav-icon { transform: scale(1.15); display: block; }
+/* Gradient hint overlay — injected as real DOM element by main.js */
+.nav-scroll-hint {
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 32px;
-  height: calc(58px + env(safe-area-inset-bottom));
-  background: linear-gradient(to left, rgba(17,19,21,0.9), transparent);
+  width: 40px;
+  height: calc(56px + env(safe-area-inset-bottom));
+  background: linear-gradient(to left, rgba(17,19,21,0.95) 20%, transparent);
   pointer-events: none;
-  z-index: 1002;
+  z-index: 1003;
+  transition: opacity 0.3s;
 }
 
 /* When bottom nav is shown, push content up */
