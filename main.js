@@ -39,21 +39,37 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const page = window.location.pathname.split('/').pop() || 'index.html';
   const navLinks = [
-    { href: 'index.html',    icon: '🏠', label: 'Home'     },
-    { href: 'projects.html', icon: '⚙️', label: 'Projects' },
-    { href: 'fintech.html',  icon: '₿',  label: 'FinTech'  },
-    { href: 'research.html', icon: '📄', label: 'Research' },
-    { href: 'socials.html',  icon: '🌐', label: 'Connect'  },
+    { href: 'index.html',            icon: '🏠', label: 'Home'      },
+    { href: 'about.html',            icon: '👤', label: 'About'     },
+    { href: 'projects.html',         icon: '⚙️', label: 'Projects'  },
+    { href: 'fintech.html',          icon: '₿',  label: 'FinTech'   },
+    { href: 'research.html',         icon: '📄', label: 'Research'  },
+    { href: 'military.html',         icon: '🎖️', label: 'Service'   },
+    { href: 'nonprofit.html',        icon: '🌱', label: 'Nonprofit' },
+    { href: 'languages.html',        icon: '🈶', label: 'Mandarin'  },
+    { href: 'blog.html',             icon: '✍️', label: 'Blog'      },
+    { href: 'socials.html',          icon: '🌐', label: 'Connect'   },
+    { href: 'graduate.html',         icon: '🎓', label: 'Grad Path' },
+    { href: 'contact.html',          icon: '✉️', label: 'Contact'   },
   ];
   const nav = document.createElement('nav');
   nav.className = 'mobile-bottom-nav';
   nav.setAttribute('aria-label', 'Mobile navigation');
   nav.innerHTML = navLinks.map(n =>
-    `<a href="${n.href}" ${n.href === page ? 'class="active"' : ''} id="mobnav-${n.label.toLowerCase()}">
+    `<a href="${n.href}" ${n.href === page ? 'class="active"' : ''} id="mobnav-${n.label.toLowerCase().replace(' ','-')}">
       <span class="nav-icon">${n.icon}</span>${n.label}
     </a>`
   ).join('');
   document.body.appendChild(nav);
+
+  // Auto-scroll active tab into centre view
+  requestAnimationFrame(() => {
+    const active = nav.querySelector('a.active');
+    if (active) {
+      const offset = active.offsetLeft - (nav.offsetWidth / 2) + (active.offsetWidth / 2);
+      nav.scrollTo({ left: offset, behavior: 'instant' });
+    }
+  });
 
   // PWA Install Banner
   const banner = document.createElement('div');
