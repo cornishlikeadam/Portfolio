@@ -35,10 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ── INJECT BOTTOM NAV & PWA BANNER INTO EVERY PAGE ──
+// ── INJECT BOTTOM NAV & APP DRAWER (MOBILE DEPLOYMENT) ──
 document.addEventListener('DOMContentLoaded', () => {
   const page = window.location.pathname.split('/').pop() || 'index.html';
-  const pages = [
+  const allPages = [
     { href: 'index.html',     icon: '🏠', label: 'Home'      },
     { href: 'about.html',     icon: '👤', label: 'About'     },
     { href: 'projects.html',  icon: '⚙️', label: 'Projects'  },
@@ -54,48 +54,60 @@ document.addEventListener('DOMContentLoaded', () => {
     { href: 'contact.html',   icon: '✉️', label: 'Contact'   },
   ];
 
-  // Build nav with inner wrapper (forces true scroll overflow)
+  const quickNav = [
+    { href: 'index.html',    icon: '🏠', label: 'Home'     },
+    { href: 'projects.html', icon: '⚙️', label: 'Projects' },
+    { href: 'research.html', icon: '📄', label: 'Research' },
+    { href: 'contact.html',  icon: '✉️', label: 'Contact'  },
+  ];
+
+  // 1. Build Static Bottom Bar
   const nav = document.createElement('nav');
   nav.className = 'mobile-bottom-nav';
-  nav.setAttribute('aria-label', 'Mobile navigation');
-  const inner = document.createElement('div');
-  inner.className = 'mnav-inner';
-  inner.innerHTML = pages.map(n =>
+  
+  // App drawer trigger
+  const menuBtn = `<a href="javascript:void(0)" id="mnav-trigger">
+      <span class="mnav-icon">⚏</span>Menu
+    </a>`;
+    
+  nav.innerHTML = quickNav.map(n =>
     `<a href="${n.href}" ${n.href === page ? 'class="active"' : ''}>
       <span class="mnav-icon">${n.icon}</span>${n.label}
     </a>`
-  ).join('');
-  nav.appendChild(inner);
+  ).join('') + menuBtn;
   document.body.appendChild(nav);
 
-  // Floating left/right transparent arrow indicators
-  const arrowL = document.createElement('div');
-  arrowL.className = 'mnav-arrow left hidden';
-  arrowL.textContent = '‹';
-  document.body.appendChild(arrowL);
+  // 2. Build App Drawer (Sliding Bottom Sheet)
+  const drawer = document.createElement('div');
+  drawer.className = 'mobile-app-drawer';
+  drawer.innerHTML = `
+    <div class="drawer-header">
+      <h3>All Destinations</h3>
+      <button class="drawer-close" id="drawer-close">✕</button>
+    </div>
+    <div class="drawer-grid">
+      ${allPages.map(n => `
+        <a href="${n.href}" class="drawer-link ${n.href === page ? 'active' : ''}">
+          <span class="drawer-icon">${n.icon}</span>
+          <span class="drawer-label">${n.label}</span>
+        </a>
+      `).join('')}
+    </div>
+  `;
+  document.body.appendChild(drawer);
 
-  const arrowR = document.createElement('div');
-  arrowR.className = 'mnav-arrow right';
-  arrowR.textContent = '›';
-  document.body.appendChild(arrowR);
-
-  function updateArrows() {
-    const sl = nav.scrollLeft;
-    const maxScroll = nav.scrollWidth - nav.clientWidth;
-    arrowL.classList.toggle('hidden', sl < 8);
-    arrowR.classList.toggle('hidden', sl >= maxScroll - 8);
-  }
-
-  nav.addEventListener('scroll', updateArrows, { passive: true });
-
-  // Auto-center active tab on load
-  requestAnimationFrame(() => {
-    const active = nav.querySelector('a.active');
-    if (active) {
-      const offset = active.offsetLeft - (nav.clientWidth / 2) + (active.offsetWidth / 2);
-      nav.scrollLeft = Math.max(0, offset);
-    }
-    updateArrows();
+  // 3. Interactions
+  const trigger = document.getElementById('mnav-trigger');
+  const closeBtn = document.getElementById('drawer-close');
+  
+  trigger.addEventListener('click', () => {
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden'; // prevent bg scroll
+  });
+  
+  closeBtn.addEventListener('click', () => {
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
   });
 
   // PWA Install Banner
