@@ -1,5 +1,5 @@
 // Service Worker — Kendren Cornish Portfolio
-const CACHE = 'kc-portfolio-v5';
+const CACHE = 'kc-portfolio-v6';
 const ASSETS = [
   '/', '/index.html', '/about.html', '/fintech.html', '/fintech-portfolio.html',
   '/projects.html', '/metrics.html', '/archive.html', '/music.html', '/research.html', '/military.html', '/nonprofit.html',
