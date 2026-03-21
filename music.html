@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#c9b07a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kayjigga | Colorful Eccentric Backpack Rap</title>
+  <meta name="description" content="The sonic playground of Kayjigga — colorful, eccentric backpack rap." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── KALEIDOSCOPE HERO ANIMATION ── */
+    .kaleidoscope-hero {
+      position: relative;
+      height: 70vh;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .kaleido-1, .kaleido-2, .kaleido-3 {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: conic-gradient(from 0deg at 50% 50%, #f43f5e, #eab308, #22c55e, #3b82f6, #a855f7, #f43f5e);
+      mix-blend-mode: screen;
+    }
+    .kaleido-1 { animation: spin 15s linear infinite; }
+    .kaleido-2 { 
+      animation: spin 20s linear infinite reverse; 
+      background: conic-gradient(from 180deg at 50% 50%, #14b8a6, #eab308, #ec4899, #6366f1, #14b8a6);
+      opacity: 0.6;
+    }
+    .kaleido-3 {
+      background: repeating-radial-gradient(circle at center, transparent 0, transparent 40px, rgba(0,0,0,0.95) 41px, rgba(0,0,0,0.95) 80px);
+      z-index: 2;
+    }
+    
+    .kaleido-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 20%, var(--bg-1) 85%);
+      z-index: 3;
+    }
+
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+
+    .music-hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .music-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    }
+    .music-hero-subtitle {
+      font-family: var(--font-mono);
+      font-size: clamp(0.9rem, 3vw, 1.2rem);
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.4);
+      padding: 10px 20px;
+      border-radius: 50px;
+      display: inline-block;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(201,176,122,0.3);
+    }
+
+    /* ── MUSIC CONTENT ── */
+    .music-section {
+      padding: 80px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .music-synopsis {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 80px;
+    }
+    .music-synopsis p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: var(--text-2);
+      margin-bottom: 24px;
+    }
+    .music-synopsis p:first-of-type {
+      font-size: 1.5rem;
+      color: var(--text);
+      font-family: var(--font-display);
+    }
+
+    .streaming-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .embed-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 24px;
+      padding: 24px;
+      transition: transform 0.3s;
+    }
+    .embed-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(201,176,122,0.2);
+    }
+
+    .yt-card {
+      background: linear-gradient(135deg, rgba(255,0,0,0.1), transparent);
+      border: 1px solid rgba(255,0,0,0.2);
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .yt-card:hover {
+      background: linear-gradient(135deg, rgba(255,0,0,0.2), transparent);
+      border-color: rgba(255,0,0,0.4);
+      transform: scale(1.02);
+    }
+    .yt-icon {
+      font-size: 3rem;
+      color: #ff0000;
+      margin-bottom: 16px;
+    }
+    .yt-card h3 {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .yt-card p {
+      color: var(--text-2);
+    }
+
+    @media (max-width: 900px) {
+      .streaming-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">KC</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li><a href="music.html" class="active">Music</a></li>
+        <li><a href="military.html">Service</a></li>
+        <li><a href="nonprofit.html">Nonprofit</a></li>
+        <li><a href="fintech.html">FinTech</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="socials.html">Socials</a></li>
+        <li><a href="contact.html" class="nav-cta">Connect</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- KALEIDOSCOPE HERO -->
+  <header class="kaleidoscope-hero">
+    <div class="kaleido-1"></div>
+    <div class="kaleido-2"></div>
+    <div class="kaleido-3"></div>
+    <div class="kaleido-vignette"></div>
+    <div class="music-hero-content">
+      <h1 class="music-hero-title">Kayjigga</h1>
+      <div class="music-hero-subtitle">Colorful Eccentric Backpack Rap</div>
+    </div>
+  </header>
+
+  <main class="music-section">
+    
+    <!-- SYNOPSIS -->
+    <div class="music-synopsis">
+      <!-- Added a decorative music note -->
+      <div style="font-size: 3rem; color: var(--gold); margin-bottom: 20px;">🎵</div>
+      <p>I don't just write code and thesis papers—I make eccentric, colorful backpack rap.</p>
+      <p>Kayjigga is a sonic alter-ego built on eclectic storytelling, erratic flows, and boundary-pushing production. Unbound by traditional genre constraints, the music reflects the same philosophical curiosity and structural disruption that I bring to artificial intelligence and comparative theology. It's weird, it's loud, and it asks questions.</p>
+    </div>
+
+    <!-- STREAMING EMBEDS -->
+    <div class="streaming-grid">
+      
+      <!-- Apple Music -->
+      <div class="embed-card">
+        <h3 style="color:var(--text); margin-bottom:16px; font-family:var(--font-mono); font-size:0.9rem; letter-spacing:0.1em; color:#fa243c;">Apple Music</h3>
+        <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;border-radius:12px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/artist/kayjigga/1681136518"></iframe>
+      </div>
+
+      <!-- Spotify -->
+      <div class="embed-card">
+        <h3 style="color:var(--text); margin-bottom:16px; font-family:var(--font-mono); font-size:0.9rem; letter-spacing:0.1em; color:#1db954;">Spotify</h3>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0NqS2EW7R90MZD5Pg0LDSf?utm_source=generator&theme=0" width="100%" height="450" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+
+    </div>
+
+    <!-- YOUTUBE LINK -->
+    <a href="https://youtube.com/channel/UC6tCcmCU5rR2kb6aAWl-dKg?si=JMSubemQsOdkx4s7" target="_blank" class="yt-card">
+      <div class="yt-icon">▶</div>
+      <h3>Subscribe on YouTube</h3>
+      <p>Watch visualizers, unreleased edits, and chaotic music videos.</p>
+    </a>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none; padding-top:0;">
+        <p>&copy; 2026 Kendren Cornish (Kayjigga). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
