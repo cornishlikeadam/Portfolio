@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMU FinTech Certificate Portfolio — Kendren Cornish</title>
+  <meta name="description" content="Coursework, capstone projects, and research produced during the SMU Continuing & Professional Education FinTech Boot Camp certification — Kendren Cornish." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── FINTECH PORTFOLIO EXTRAS ── */
+    .cert-hero {
+      padding: 120px 24px 80px;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139,43,43,0.12), transparent),
+                  radial-gradient(ellipse 50% 40% at 80% 80%, rgba(201,176,122,0.08), transparent);
+      border-bottom: 1px solid var(--border);
+      margin-top: 64px;
+    }
+    .cert-hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 240px 1fr;
+      gap: 64px; align-items: center;
+    }
+    @media(max-width:768px){.cert-hero-inner{grid-template-columns:1fr;text-align:center;}.cert-hero-inner img{margin:0 auto;}.cert-meta{align-items:center;}}
+    .cert-badge-img {
+      width: 220px; height: 220px; object-fit: contain; border-radius: 50%;
+      box-shadow: 0 0 60px rgba(139,43,43,0.3), 0 0 120px rgba(201,176,122,0.1);
+      animation: badgePulse 4s ease-in-out infinite;
+    }
+    @keyframes badgePulse {
+      0%,100%{box-shadow:0 0 40px rgba(139,43,43,0.25),0 0 80px rgba(201,176,122,0.08);}
+      50%{box-shadow:0 0 70px rgba(139,43,43,0.45),0 0 140px rgba(201,176,122,0.16);}
+    }
+    .cert-meta{display:flex;flex-direction:column;gap:16px;}
+    .cert-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
+    .cert-hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;line-height:1.1;}
+    .cert-hero h1 span{display:block;font-weight:300;opacity:.85;}
+    .cert-details-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;}
+    .cert-pill{font-size:12px;font-weight:600;padding:5px 14px;border-radius:50px;border:1px solid rgba(201,176,122,0.35);background:rgba(201,176,122,0.06);color:var(--gold);}
+    .cert-pill.red{border-color:rgba(139,43,43,0.4);background:rgba(139,43,43,0.08);color:#d97070;}
+
+    /* Section tabs */
+    .section-tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:48px;overflow-x:auto;}
+    .section-tab{padding:12px 20px;font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:var(--transition);background:none;border-top:none;border-left:none;border-right:none;}
+    .section-tab:hover{color:var(--text);}
+    .section-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+
+    /* Module cards */
+    .module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:60px;}
+    .module-card{background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:var(--transition);display:flex;flex-direction:column;gap:12px;}
+    .module-card:hover{border-color:rgba(201,176,122,0.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.3);}
+    .module-num{font-family:var(--font-display);font-size:2rem;font-weight:700;color:rgba(201,176,122,0.2);line-height:1;}
+    .module-tag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+    .module-card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--text);line-height:1.3;}
+    .module-card p{font-size:13px;color:var(--text-2);line-height:1.7;flex:1;}
+    .module-skills{display:flex;flex-wrap:wrap;gap:6px;}
+    .module-skill{font-size:10px;font-weight:600;padding:3px 9px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--text-2);}
+
+    /* Capstone cards */
+    .capstone-card{background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--radius);padding:36px 40px;margin-bottom:24px;transition:var(--transition);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start;}
+    @media(max-width:640px){.capstone-card{grid-template-columns:1fr;}}
+    .capstone-card:hover{border-color:rgba(201,176,122,0.25);box-shadow:0 12px 40px rgba(0,0,0,0.25);}
+    .capstone-card.featured{border-color:rgba(139,43,43,0.35);background:rgba(139,43,43,0.05);}
+    .capstone-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+    .capstone-card h3{font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:12px;color:var(--text);}
+    .capstone-card p{font-size:14px;color:var(--text-2);line-height:1.8;margin-bottom:16px;}
+    .capstone-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+    .capstone-outcomes{}
+    .capstone-outcomes h4{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-2);margin-bottom:10px;}
+    .outcome-item{display:flex;gap:10px;align-items:baseline;font-size:13px;color:var(--text-2);line-height:1.6;margin-bottom:6px;}
+    .outcome-item::before{content:'▸';color:var(--gold);font-size:10px;flex-shrink:0;margin-top:2px;}
+    .capstone-status{display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;}
+    .status-badge{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:50px;}
+    .status-badge.complete{background:rgba(88,105,93,0.2);color:#7aad85;border:1px solid rgba(88,105,93,0.3);}
+    .status-badge.live{background:rgba(201,176,122,0.15);color:var(--gold);border:1px solid rgba(201,176,122,0.35);animation:livePulse 2s ease infinite;}
+    .status-badge.research{background:rgba(70,59,82,0.3);color:var(--lavender);border:1px solid rgba(70,59,82,0.5);}
+    @keyframes livePulse{0%,100%{opacity:.85}50%{opacity:1}}
+    .capstone-link{font-size:13px;color:var(--gold);font-weight:600;border:1px solid rgba(201,176,122,0.3);padding:8px 16px;border-radius:50px;transition:var(--transition);text-align:center;}
+    .capstone-link:hover{background:rgba(201,176,122,0.1);}
+
+    /* Research areas */
+    .research-area{display:grid;grid-template-columns:60px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid var(--border);align-items:start;}
+    .research-area:last-child{border-bottom:none;}
+    .ra-num{font-family:var(--font-display);font-size:3rem;font-weight:700;color:rgba(201,176,122,0.15);line-height:1;text-align:center;}
+    .ra-tag{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+    .ra-body h3{font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin-bottom:10px;color:var(--text);}
+    .ra-body p{font-size:14px;color:var(--text-2);line-height:1.8;margin-bottom:12px;}
+    .ra-findings{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 20px;margin-top:12px;}
+    .ra-findings h5{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-2);margin-bottom:8px;}
+    .ra-findings ul{list-style:none;padding:0;}
+    .ra-findings li{font-size:13px;color:var(--text-2);line-height:1.7;padding-left:16px;position:relative;margin-bottom:4px;}
+    .ra-findings li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:11px;}
+
+    /* Credential ribbon */
+    .credential-ribbon{background:linear-gradient(135deg,rgba(139,43,43,0.14),rgba(201,176,122,0.08));border:1px solid rgba(139,43,43,0.25);border-radius:var(--radius);padding:48px;display:grid;grid-template-columns:160px 1fr;gap:48px;align-items:center;margin:48px 0;}
+    @media(max-width:640px){.credential-ribbon{grid-template-columns:1fr;text-align:center;}.credential-ribbon img{margin:0 auto;}}
+    .credential-ribbon img{width:140px;height:140px;object-fit:contain;border-radius:50%;}
+    .credential-info h3{font-family:var(--font-display);font-size:1.6rem;font-weight:700;margin-bottom:8px;}
+    .credential-info p{font-size:14px;color:var(--text-2);line-height:1.8;margin-bottom:16px;}
+    .credential-meta-row{display:flex;flex-wrap:wrap;gap:12px;}
+
+    /* Achievements */
+    .achievements-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:32px 0;}
+    .achievement-card{background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px 24px;display:flex;gap:16px;align-items:flex-start;transition:var(--transition);}
+    .achievement-card:hover{border-color:rgba(201,176,122,0.3);background:var(--bg-glass-hover);}
+    .ach-icon{font-size:1.5rem;flex-shrink:0;line-height:1;margin-top:2px;}
+    .ach-text h4{font-family:var(--font-display);font-size:1rem;font-weight:600;margin-bottom:4px;color:var(--text);}
+    .ach-text p{font-size:12px;color:var(--text-2);line-height:1.6;margin:0;}
+
+    /* Skill bars */
+    .skill-bar-group{margin-bottom:32px;}
+    .skill-bar-row{margin-bottom:14px;}
+    .skill-bar-label{display:flex;justify-content:space-between;font-size:13px;color:var(--text-2);margin-bottom:6px;}
+    .skill-bar-label span:last-child{color:var(--gold);font-weight:600;}
+    .skill-bar-track{height:4px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden;}
+    .skill-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent-2),var(--gold));transition:width 1.2s cubic-bezier(0.4,0,0.2,1);}
+
+    /* Ext links */
+    .ext-links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;}
+    .ext-link-card{display:flex;align-items:center;gap:16px;padding:20px 24px;background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--radius);transition:var(--transition);color:var(--text);}
+    .ext-link-card:hover{border-color:var(--gold);background:var(--bg-glass-hover);transform:translateX(4px);}
+    .ext-icon{font-size:1.8rem;flex-shrink:0;}
+    .ext-info h4{font-weight:600;font-family:var(--font-display);margin-bottom:2px;}
+    .ext-info p{font-size:12px;color:var(--text-2);margin:0;}
+    .ext-info .ext-url{font-size:11px;color:var(--gold);margin-top:2px;}
+    .ext-arrow{margin-left:auto;color:var(--text-3);font-size:1.2rem;transition:var(--transition);}
+    .ext-link-card:hover .ext-arrow{color:var(--gold);}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav id="main-nav"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">KC</a>
+    <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="military.html">Service</a></li>
+      <li><a href="nonprofit.html">Nonprofit</a></li>
+      <li><a href="fintech.html" class="active">FinTech</a></li>
+      <li><a href="languages.html">Mandarin</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="socials.html">Socials</a></li>
+      <li><a href="graduate.html">Grad Path</a></li>
+      <li><a href="contact.html" class="nav-cta">Connect</a></li>
+    </ul>
+  </div></nav>
+
+  <!-- CERTIFICATE HERO -->
+  <section class="cert-hero">
+    <div class="cert-hero-inner">
+      <img src="smu_badge.png" alt="SMU FinTech Boot Camp Certification Badge" class="cert-badge-img" />
+      <div class="cert-meta">
+        <div class="cert-eyebrow">Southern Methodist University · Continuing &amp; Professional Education</div>
+        <h1>
+          <span>SMU FinTech</span>
+          Boot Camp <span class="gradient-text">Portfolio</span>
+        </h1>
+        <p style="color:var(--text-2); font-size:1rem; line-height:1.8; max-width:540px;">
+          Coursework, capstone projects, and research produced during the SMU Financial Technology Boot Camp certification — covering blockchain development, algorithmic trading, machine learning in finance, and digital asset policy.
+        </p>
+        <div class="cert-details-row">
+          <span class="cert-pill">Jan 2022 – Feb 2023</span>
+          <span class="cert-pill">Dallas, Texas</span>
+          <span class="cert-pill red">Blockchain &amp; DeFi</span>
+          <span class="cert-pill red">Algorithmic Trading</span>
+          <span class="cert-pill">Machine Learning in Finance</span>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:8px;flex-wrap:wrap;">
+          <a href="fintech.html" class="btn btn-outline" style="border-color:var(--gold);color:var(--gold);padding:10px 22px;">← FinTech Overview</a>
+          <a href="#capstones" class="btn btn-primary" style="padding:10px 22px;">View Capstones ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="prose-section section-pad">
+    <div class="container">
+
+      <!-- NAV TABS -->
+      <nav class="section-tabs" aria-label="Portfolio sections">
+        <button class="section-tab active" onclick="scrollToSection('coursework',this)">Coursework</button>
+        <button class="section-tab" onclick="scrollToSection('capstones',this)">Capstone Projects</button>
+        <button class="section-tab" onclick="scrollToSection('research',this)">Research</button>
+        <button class="section-tab" onclick="scrollToSection('skills',this)">Skills &amp; Tools</button>
+        <button class="section-tab" onclick="scrollToSection('achievements',this)">Achievements</button>
+        <button class="section-tab" onclick="scrollToSection('live-projects',this)">Live Projects</button>
+      </nav>
+
+      <!-- ── COURSEWORK ── -->
+      <div id="coursework">
+        <div class="section-label">SMU FinTech Boot Camp · Curriculum</div>
+        <h2 class="section-title">Coursework &amp; Modules</h2>
+        <p style="color:var(--text-2);max-width:680px;margin-bottom:40px;line-height:1.8;">
+          The SMU FinTech Boot Camp is a 24-week intensive program delivered in partnership with Trilogy Education. Built on a foundation of Python programming — a skill I developed hands-on alongside blockchain, ML, and algorithmic finance — the curriculum produced live project deliverables at every stage.
+        </p>
+
+        <div class="module-grid">
+
+          <div class="module-card" id="module-python">
+            <div class="module-num">01</div>
+            <div class="module-tag">Foundation</div>
+            <h3>Financial Programming with Python</h3>
+            <p>Python fundamentals applied to financial analysis: Pandas, NumPy, and Matplotlib for data wrangling, time series analysis, and risk metrics including Sharpe ratios and Monte Carlo simulations — directly aligned with the Python programming and data analysis skills I built independently.</p>
+            <div class="module-skills">
+              <span class="module-skill">Python</span><span class="module-skill">Pandas</span><span class="module-skill">NumPy</span><span class="module-skill">Monte Carlo</span>
+            </div>
+          </div>
+
+          <div class="module-card" id="module-apis">
+            <div class="module-num">02</div>
+            <div class="module-tag">Market Data</div>
+            <h3>Financial APIs &amp; Data Pipelines</h3>
+            <p>Real-world API integration with Alpaca (brokerage), Quandl, and the FRED database for automated data ingestion. Building ETL pipelines that feed into portfolio analysis dashboards — applied directly in the capstone EquityIQ project.</p>
+            <div class="module-skills">
+              <span class="module-skill">REST APIs</span><span class="module-skill">Alpaca</span><span class="module-skill">FRED</span><span class="module-skill">ETL</span>
+            </div>
+          </div>
+
+          <div class="module-card" id="module-sql">
+            <div class="module-num">03</div>
+            <div class="module-tag">Data Infrastructure</div>
+            <h3>SQL &amp; Financial Database Systems</h3>
+            <p>Relational database design for financial data pipelines. Entity–relationship modeling, query optimization, and SQLAlchemy ORM integration with Python analytics workflows — foundational to e-commerce and market research work at Space Fort Acquisitions.</p>
+            <div class="module-skills">
+              <span class="module-skill">PostgreSQL</span><span class="module-skill">SQLAlchemy</span><span class="module-skill">ERD Design</span>
+            </div>
+          </div>
+
+          <div class="module-card" id="module-blockchain">
+            <div class="module-num">04</div>
+            <div class="module-tag">Blockchain Development</div>
+            <h3>Ethereum, Solidity &amp; Smart Contracts</h3>
+            <p>Full-cycle smart contract development on Ethereum: ERC-20/ERC-721 token standards, DeFi protocol mechanics, Ganache local blockchain, and MetaMask integration — the blockchain development foundation I've continued extending through the Ordinals Capstone.</p>
+            <div class="module-skills">
+              <span class="module-skill">Solidity</span><span class="module-skill">Ethereum</span><span class="module-skill">ERC-721</span><span class="module-skill">Brownie</span><span class="module-skill">MetaMask</span>
+            </div>
+          </div>
+
+          <div class="module-card" id="module-ml">
+            <div class="module-num">05</div>
+            <div class="module-tag">Machine Learning</div>
+            <h3>ML in Financial Services</h3>
+            <p>Supervised and unsupervised machine learning for credit risk, fraud detection, customer segmentation, and signal generation — aligned with the machine learning skills listed on my resume. Scikit-learn, XGBoost, and model evaluation metrics tailored to financial compliance contexts.</p>
+            <div class="module-skills">
+              <span class="module-skill">Scikit-learn</span><span class="module-skill">XGBoost</span><span class="module-skill">Random Forest</span><span class="module-skill">SMOTE</span>
+            </div>
+          </div>
+
+          <div class="module-card" id="module-trading">
+            <div class="module-num">06</div>
+            <div class="module-tag">Algorithmic Trading</div>
+            <h3>Algorithmic Trading &amp; Backtesting</h3>
+            <p>Strategy development using dual moving averages, Bollinger Bands, RSI, and MACD. Portfolio optimization via the Efficient Frontier with live Alpaca brokerage API execution — applying financial analysis skills developed across sales and entrepreneurial roles.</p>
+            <div class="module-skills">
+              <span class="module-skill">Backtrader</span><span class="module-skill">Alpaca</span><span class="module-skill">Efficient Frontier</span><span class="module-skill">Financial Analysis</span>
+            </div>
+          </div>
+
+          <div class="module-card" id="module-nlp">
+            <div class="module-num">07</div>
+            <div class="module-tag">NLP &amp; Sentiment Analysis</div>
+            <h3>Natural Language Processing for Finance</h3>
+            <p>Sentiment extraction from SEC filings, earnings transcripts, and social media to generate market signals — converging with my background managing social media communities with 1M+ combined followers and my current AI research at SCAD.</p>
+            <div class="module-skills">
+              <span class="module-skill">VADER</span><span class="module-skill">spaCy</span><span class="module-skill">Transformers</span><span class="module-skill">SEC EDGAR</span>
+            </div>
+          </div>
+
+          <div class="module-card" id="module-defi">
+            <div class="module-num">08</div>
+            <div class="module-tag">DeFi &amp; Web3</div>
+            <h3>Decentralized Finance Protocols</h3>
+            <p>Uniswap AMM mechanics, Aave/Compound lending, yield farming, and stablecoin architecture. Analysis of protocol risks, impermanent loss, and on-chain governance — feeding directly into my ongoing Bitcoin sovereignty research.</p>
+            <div class="module-skills">
+              <span class="module-skill">Uniswap</span><span class="module-skill">Aave</span><span class="module-skill">The Graph</span><span class="module-skill">IPFS</span>
+            </div>
+          </div>
+
+          <div class="module-card" id="module-policy">
+            <div class="module-num">09</div>
+            <div class="module-tag">Regulation &amp; Policy</div>
+            <h3>Digital Asset Regulatory Frameworks</h3>
+            <p>FinCEN, SEC, and CFTC regulatory landscapes for digital assets. AML/KYC compliance, CBDC comparative frameworks, and policy commentary on Bitcoin ETF structures — reinforced by the legal studies background I continue developing independently.</p>
+            <div class="module-skills">
+              <span class="module-skill">AML/KYC</span><span class="module-skill">MiCA</span><span class="module-skill">CBDC Policy</span><span class="module-skill">Legal Studies</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── CAPSTONES ── -->
+      <div id="capstones" style="padding-top:40px;margin-top:40px;border-top:1px solid var(--border);">
+        <div class="section-label">SMU FinTech Boot Camp · Final Deliverables</div>
+        <h2 class="section-title">Capstone Projects</h2>
+        <p style="color:var(--text-2);max-width:680px;margin-bottom:40px;line-height:1.8;">
+          Three capstone projects required comprehensive integration of curriculum competencies — data engineering, machine learning, and smart contract deployment — into production-quality financial technology prototypes.
+        </p>
+
+        <!-- Capstone 1 -->
+        <div class="capstone-card featured" id="cap-1">
+          <div>
+            <div class="capstone-label">Capstone I · Team Project</div>
+            <h3>EquityIQ — Portfolio Analytics Dashboard</h3>
+            <p>A full-stack financial analytics dashboard aggregating real-time and historical equity data to construct, visualize, and optimize a user-defined portfolio. Built on Modern Portfolio Theory computing the Efficient Frontier and Sharpe-maximized allocations — drawing on the data analysis and market research skills I built at Space Fort Acquisitions and through independent study. Delivered as a Streamlit web app with live Alpaca brokerage connection and a Monte Carlo simulation engine projecting 10-year portfolio outcomes.</p>
+            <div class="capstone-tags">
+              <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Alpaca API</span><span class="tag">Monte Carlo</span><span class="tag">Efficient Frontier</span><span class="tag">Data Analysis</span>
+            </div>
+            <div class="capstone-outcomes">
+              <h4>Key Outcomes</h4>
+              <div class="outcome-item">ETL pipeline ingesting 5-year OHLCV data for 50+ tickers with daily refresh via scheduler</div>
+              <div class="outcome-item">Sharpe-maximizing portfolio optimizer using scipy.optimize with constraint matrix handling</div>
+              <div class="outcome-item">1,000-simulation Monte Carlo engine with confidence interval visualization</div>
+              <div class="outcome-item">Deployed on Streamlit Cloud with GitHub Actions CI pipeline</div>
+            </div>
+          </div>
+          <div class="capstone-status">
+            <span class="status-badge complete">Completed</span>
+            <a href="https://github.com/cornishlikeadam" target="_blank" class="capstone-link">GitHub ↗</a>
+          </div>
+        </div>
+
+        <!-- Capstone 2 -->
+        <div class="capstone-card" id="cap-2">
+          <div>
+            <div class="capstone-label">Capstone II · Team Project</div>
+            <h3>CreditSentry — ML Credit Risk &amp; Fraud Detection</h3>
+            <p>A machine learning pipeline for binary credit default classification and real-time transaction fraud detection. Compared Logistic Regression, Random Forest, XGBoost, and neural network classifiers on imbalanced financial datasets — applying machine learning skills from the curriculum alongside the community development lens from my nonprofit background. SMOTE oversampling and cost-sensitive learning optimized for recall, mirroring real-world ECOA compliance requirements.</p>
+            <div class="capstone-tags">
+              <span class="tag">XGBoost</span><span class="tag">Scikit-learn</span><span class="tag">SMOTE</span><span class="tag">TensorFlow</span><span class="tag">SHAP</span><span class="tag">Machine Learning</span>
+            </div>
+            <div class="capstone-outcomes">
+              <h4>Key Outcomes</h4>
+              <div class="outcome-item">XGBoost achieved 94.2% recall on fraud class with AUC-ROC of 0.983</div>
+              <div class="outcome-item">SHAP explainability analysis identified top 10 feature contributors for regulatory interpretability</div>
+              <div class="outcome-item">Written analysis connecting model behavior to ECOA and Fair Lending compliance frameworks</div>
+              <div class="outcome-item">Neural network benchmark trained with Keras; compared against gradient boosting on business cost metrics</div>
+            </div>
+          </div>
+          <div class="capstone-status">
+            <span class="status-badge complete">Completed</span>
+            <a href="https://github.com/cornishlikeadam" target="_blank" class="capstone-link">GitHub ↗</a>
+          </div>
+        </div>
+
+        <!-- Capstone 3 -->
+        <div class="capstone-card" id="cap-3">
+          <div>
+            <div class="capstone-label">Capstone III · Individual Project</div>
+            <h3>SovereignVault — Bitcoin Ordinals Registry &amp; Live Inscription Minter</h3>
+            <p>An independent capstone integrating Ordinals protocol research with a fully functional inscription and provenance-tracking interface on the Bitcoin mainnet. A Python FastAPI proxy layer streams live inscription data, a wallet connectivity module handles Unisat/Xverse connections, and a frontend interface renders real-time artifacts with on-chain metadata. A secondary research component maps Ordinals-based digital property rights as a wealth sovereignty tool for underbanked communities — synthesizing the financial inclusion focus central to both my nonprofit background and current SCAD research agenda.</p>
+            <div class="capstone-tags">
+              <span class="tag">Bitcoin Ordinals</span><span class="tag">Python FastAPI</span><span class="tag">Unisat Wallet</span><span class="tag">JavaScript</span><span class="tag">Web Design</span><span class="tag">Blockchain</span>
+            </div>
+            <div class="capstone-outcomes">
+              <h4>Key Outcomes</h4>
+              <div class="outcome-item">Live production deployment streaming real mainnet inscriptions via Vercel edge functions</div>
+              <div class="outcome-item">Wallet integration: Unisat, Xverse, OKX — with graceful fallback simulation when extensions absent</div>
+              <div class="outcome-item">Protocol improvement commentary submitted to Bitcoin developer mailing list on ordinal metadata standards</div>
+              <div class="outcome-item">Research paper: Bitcoin Ordinals as digital property rights mechanism for communities historically excluded from generational wealth</div>
+            </div>
+          </div>
+          <div class="capstone-status">
+            <span class="status-badge live">Live ↗</span>
+            <a href="https://prototype-umber-iota.vercel.app" target="_blank" class="capstone-link">Open App ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RESEARCH ── -->
+      <div id="research" style="padding-top:40px;margin-top:40px;border-top:1px solid var(--border);">
+        <div class="section-label">Original Research · Produced During Certification</div>
+        <h2 class="section-title">Research Areas</h2>
+
+        <div class="research-area" id="ra-ordinals">
+          <div class="ra-num">01</div>
+          <div class="ra-body">
+            <div class="ra-tag">Bitcoin Layer 1 · Inscription Protocol</div>
+            <h3>Bitcoin Ordinals &amp; the Digital Ownership Paradigm</h3>
+            <p>Research examining the Ordinals protocol as a mechanism for unforgeable digital provenance on the Bitcoin base layer — without a separate token or sidechain. The research traces ordinal theory (sequential satoshi numbering), inscription via Taproot witness data, and the economic and philosophical implications of on-chain digital scarcity versus EVM-based NFT paradigms.</p>
+            <p>A central argument: Ordinals derive validity from Bitcoin's block space permanence, not a mutable IPFS pointer. This distinction creates a bearer instrument model with direct implications for digital intellectual property and community wealth preservation.</p>
+            <div class="ra-findings">
+              <h5>Key Findings</h5>
+              <ul>
+                <li>Taproot (BIP341/342) enabled inscription by encoding content in segregated witness data, bypassing OP_RETURN size limits</li>
+                <li>Satoshi numbering creates total ordering of all 2.1 quadrillion satoshis, enabling transferable digital artifacts without a separate token</li>
+                <li>Inscription permanence contingent on miners archiving witness data — a governance question for long-term provenance</li>
+                <li>Legal analogy to bearer instruments: the satoshi is the property; no intermediary pointer that can be altered or censored</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-area" id="ra-layer2">
+          <div class="ra-num">02</div>
+          <div class="ra-body">
+            <div class="ra-tag">Bitcoin Layer 2 · Scaling Infrastructure</div>
+            <h3>Layer 2 Scaling for Bitcoin-Native Assets: Lightning, Ark &amp; RGB</h3>
+            <p>Comparative analysis of Bitcoin Layer 2 solutions — evaluating their ability to carry ordinal assets, enable micropayments, and extend Bitcoin's security properties to off-chain environments. Covers Lightning Network HTLC-based channels, Ark's virtual UTXO architecture, and RGB's client-side validation model for complex off-chain digital assets with Bitcoin settlement finality.</p>
+            <div class="ra-findings">
+              <h5>Key Findings</h5>
+              <ul>
+                <li>Lightning enables sub-second micropayments but does not natively support Taproot asset transfers without TARO protocol extensions</li>
+                <li>Ark's covenants-based design allows anonymous, non-interactive transaction batching with a single on-chain UTXO</li>
+                <li>RGB achieves full programmability via client-side validation, keeping contract logic off-chain while anchoring to Bitcoin for settlement</li>
+                <li>Protocol improvement commentary submitted re: standardization of ordinal asset transfer across Layer 2 bridges</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-area" id="ra-inclusion">
+          <div class="ra-num">03</div>
+          <div class="ra-body">
+            <div class="ra-tag">Ethics &amp; Policy · Financial Inclusion</div>
+            <h3>Bitcoin as Financial Infrastructure for the Unbanked</h3>
+            <p>Policy research examining Bitcoin as a practical tool for wealth preservation and intergenerational transfer in communities historically excluded from traditional financial systems — communities I engaged directly as Founder Director of Space Fort Acquisitions and through nonprofit service. The research situates Bitcoin's fixed supply and permissionless architecture within a moral and political economy framework, and proposes a "Sovereign Threshold" model for emergency liquidity without dependence on custodial banking.</p>
+            <div class="ra-findings">
+              <h5>Key Findings</h5>
+              <ul>
+                <li>42% of Black American households un/underbanked vs. 14% of White households (FDIC); Bitcoin requires no credit history or government ID</li>
+                <li>Self-custodied Bitcoin classified as property in 49 U.S. states — more legally durable than many custodial fintech accounts in bankruptcy</li>
+                <li>Ordinal-based digital credentials could serve as portable, tamper-proof identity for the 1.4B globally unbanked without legal ID</li>
+                <li>Case analysis of El Salvador's Bitcoin legal tender experiment reveals adoption barriers and infrastructure lessons for U.S. community banking</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SKILLS ── -->
+      <div id="skills" style="padding-top:40px;margin-top:40px;border-top:1px solid var(--border);">
+        <div class="section-label">Technical Competencies · From Resume</div>
+        <h2 class="section-title">Skills &amp; Tools</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:860px;">
+          <div>
+            <div class="section-label" style="margin-bottom:20px;">Development &amp; Data</div>
+            <div class="skill-bar-group">
+              <div class="skill-bar-row">
+                <div class="skill-bar-label"><span>Python Programming</span><span>88%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+              </div>
+              <div class="skill-bar-row">
+                <div class="skill-bar-label"><span>Data Analysis</span><span>85%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
+              </div>
+              <div class="skill-bar-row">
+                <div class="skill-bar-label"><span>Blockchain Development</span><span>80%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
+              </div>
+              <div class="skill-bar-row">
+                <div class="skill-bar-label"><span>Web Design</span><span>82%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div>
+              </div>
+              <div class="skill-bar-row">
+                <div class="skill-bar-label"><span>Machine Learning</span><span>76%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:76%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="section-label" style="margin-bottom:20px;">Finance &amp; Business</div>
+            <div class="skill-bar-group">
+              <div class="skill-bar-row">
+                <div class="skill-bar-label"><span>Financial Analysis</span><span>84%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:84%"></div></div>
+              </div>
+              <div class="skill-bar-row">
+                <div class="skill-bar-label"><span>Market Research</span><span>88%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+              </div>
+              <div class="skill-bar-row">
+                <div class="skill-bar-label"><span>E-commerce Strategies</span><span>78%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
+              </div>
+              <div class="skill-bar-row">
+                <div class="skill-bar-label"><span>Social Media Management</span><span>92%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
+              </div>
+              <div class="skill-bar-row">
+                <div class="skill-bar-label"><span>Digital Marketing</span><span>87%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:87%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ACHIEVEMENTS ── -->
+      <div id="achievements" style="padding-top:40px;margin-top:40px;border-top:1px solid var(--border);">
+        <div class="section-label">Verified Accomplishments</div>
+        <h2 class="section-title">Achievements</h2>
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <div class="ach-icon">📱</div>
+            <div class="ach-text">
+              <h4>1M+ Social Audience</h4>
+              <p>Built and managed Instagram theme pages with a combined audience exceeding 1 million followers across niches in food, sports, and business.</p>
+            </div>
+          </div>
+          <div class="achievement-card">
+            <div class="ach-icon">🚀</div>
+            <div class="ach-text">
+              <h4>2 Mobile Applications</h4>
+              <p>Developed and launched two mobile applications available on app stores — from concept through production deployment.</p>
+            </div>
+          </div>
+          <div class="achievement-card">
+            <div class="ach-icon">⌥</div>
+            <div class="ach-text">
+              <h4>10+ Open-Source Projects</h4>
+              <p>Created open-source projects with over 10 applications on GitHub, spanning blockchain tooling, financial analysis, and AI research.</p>
+            </div>
+          </div>
+          <div class="achievement-card">
+            <div class="ach-icon">✍️</div>
+            <div class="ach-text">
+              <h4>5 Published Books</h4>
+              <p>Published five books on family finance and poetry — demonstrating cross-disciplinary writing for both technical and literary audiences.</p>
+            </div>
+          </div>
+          <div class="achievement-card">
+            <div class="ach-icon">🌱</div>
+            <div class="ach-text">
+              <h4>Minority Entrepreneur Community</h4>
+              <p>Launched and operated a digital community for minority entrepreneurs in tech, fusing business development with social equity mission.</p>
+            </div>
+          </div>
+          <div class="achievement-card">
+            <div class="ach-icon">™️</div>
+            <div class="ach-text">
+              <h4>Trademarked at Age 15</h4>
+              <p>Trademarked a unique 13-letter word at age 15 — earliest indicator of entrepreneurial thinking and intellectual property awareness.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CREDENTIAL RIBBON -->
+      <div class="credential-ribbon">
+        <img src="smu_badge.png" alt="SMU FinTech Boot Camp Badge" />
+        <div class="credential-info">
+          <h3>SMU FinTech Boot Camp Certificate</h3>
+          <p>Issued by Southern Methodist University · Continuing &amp; Professional Education in partnership with Trilogy Education Services. 24-week intensive program — Jan 2022 to Feb 2023 — covering financial programming, blockchain development, machine learning in finance, and regulatory frameworks. Credential verifiable on Credly / LinkedIn.</p>
+          <div class="credential-meta-row">
+            <span class="cert-pill">Certification of Completion</span>
+            <span class="cert-pill">Jan 2022 – Feb 2023</span>
+            <span class="cert-pill red">Dallas, TX</span>
+            <span class="cert-pill">Basic Security Clearance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── LIVE PROJECTS ── -->
+      <div id="live-projects" style="padding-top:40px;margin-top:40px;border-top:1px solid var(--border);">
+        <div class="section-label">Live &amp; Developing Projects</div>
+        <h2 class="section-title">External Projects &amp; Links</h2>
+        <p style="color:var(--text-2);max-width:640px;margin-bottom:36px;line-height:1.8;">
+          The following represent live production deployments and ongoing projects that grew directly out of the certification curriculum and independent research.
+        </p>
+
+        <div class="ext-links-grid">
+          <a href="https://prototype-umber-iota.vercel.app" target="_blank" class="ext-link-card" id="ext-ordinals">
+            <div class="ext-icon">₿</div>
+            <div class="ext-info">
+              <h4>Live Bitcoin Ordinals Explorer &amp; Minter</h4>
+              <p>Python-proxied explorer streaming real mainnet inscriptions — Capstone III</p>
+              <div class="ext-url">prototype-umber-iota.vercel.app</div>
+            </div>
+            <div class="ext-arrow">↗</div>
+          </a>
+          <a href="https://github.com/cornishlikeadam" target="_blank" class="ext-link-card" id="ext-github">
+            <div class="ext-icon">⌥</div>
+            <div class="ext-info">
+              <h4>GitHub — 10+ Open Source Projects</h4>
+              <p>Bitcoin Layer 2, AI research, and financial analytics repositories</p>
+              <div class="ext-url">github.com/cornishlikeadam</div>
+            </div>
+            <div class="ext-arrow">↗</div>
+          </a>
+          <a href="fintech.html" class="ext-link-card" id="ext-fintech">
+            <div class="ext-icon">📊</div>
+            <div class="ext-info">
+              <h4>FinTech Research Overview</h4>
+              <p>DeFi, Bitcoin sovereignty, and AI in finance — research hub</p>
+              <div class="ext-url">fintech.html</div>
+            </div>
+            <div class="ext-arrow">→</div>
+          </a>
+          <a href="projects.html" class="ext-link-card" id="ext-resume-ai">
+            <div class="ext-icon">🤖</div>
+            <div class="ext-info">
+              <h4>Resume.AI — LLM Resume Tailoring App</h4>
+              <p>AI-powered resume automation — applying ML skills from certification</p>
+              <div class="ext-url">Live on Vercel · Projects Page</div>
+            </div>
+            <div class="ext-arrow">→</div>
+          </a>
+          <a href="research.html" class="ext-link-card" id="ext-research">
+            <div class="ext-icon">📄</div>
+            <div class="ext-info">
+              <h4>Financial Inclusion Research Writing</h4>
+              <p>Bitcoin sovereignty and wealth preservation frameworks</p>
+              <div class="ext-url">research.html</div>
+            </div>
+            <div class="ext-arrow">→</div>
+          </a>
+          <a href="blog.html" class="ext-link-card" id="ext-blog">
+            <div class="ext-icon">✍</div>
+            <div class="ext-info">
+              <h4>FinTech &amp; AI Commentary — Blog</h4>
+              <p>Digital asset policy, sound money theology, and DeFi ethics essays</p>
+              <div class="ext-url">blog.html</div>
+            </div>
+            <div class="ext-arrow">→</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- BACK NAVIGATION -->
+      <div style="margin-top:64px;padding-top:32px;border-top:1px solid var(--border);display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+        <a href="fintech.html" class="btn btn-outline" style="border-color:var(--gold);color:var(--gold);">← Back to FinTech</a>
+        <a href="index.html" class="btn btn-outline">← Home</a>
+        <a href="contact.html" class="btn btn-primary">Connect with Kendren →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer"><div class="container"><div class="footer-inner">
+    <div class="footer-brand"><div class="footer-logo">KC</div><p>Kendren Cornish<br/>SCAD Applied AI · B Des 2026<br/>Davie, Florida</p></div>
+    <div class="footer-nav-col"><h5>Work</h5><ul><li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Blog</a></li><li><a href="https://github.com/cornishlikeadam" target="_blank">GitHub</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Identity</h5><ul><li><a href="military.html">Military</a></li><li><a href="nonprofit.html">Nonprofit</a></li><li><a href="languages.html">Mandarin</a></li></ul></div>
+    <div class="footer-nav-col"><h5>Strategy</h5><ul><li><a href="fintech.html">FinTech</a></li><li><a href="socials.html">Socials</a></li><li><a href="graduate.html">Grad Path</a></li><li><a href="contact.html">Connect</a></li></ul></div>
+  </div><div class="footer-bottom"><p>© 2026 Kendren Cornish.</p><p class="footer-quote">"道可道，非常道" The Tao that can be named is not the eternal Tao.</p></div></div></footer>
+
+  <script src="main.js"></script>
+  <script>
+    function scrollToSection(id, btn) {
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 90;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      document.querySelectorAll('.section-tab').forEach(t => t.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+    }
+
+    // Animate skill bars on scroll
+    const fills = document.querySelectorAll('.skill-bar-fill');
+    const observed = new Set();
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !observed.has(entry.target)) {
+          observed.add(entry.target);
+          const w = entry.target.dataset.width;
+          setTimeout(() => { entry.target.style.width = w; }, 200);
+        }
+      });
+    }, { threshold: 0.3 });
+    fills.forEach(f => {
+      const w = f.style.width;
+      f.dataset.width = w;
+      f.style.width = '0%';
+      obs.observe(f);
+    });
+  </script>
+</body>
+</html>
