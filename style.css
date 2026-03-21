@@ -1053,7 +1053,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 /* When bottom nav is shown, push content up */
 @media (max-width: 768px) {
-  .mobile-bottom-nav { display: flex; }
+  .mobile-bottom-nav { display: block; }
   body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
   /* Hide top nav on mobile to avoid double nav */
   #main-nav { display: none; }

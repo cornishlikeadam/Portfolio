@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#c9b07a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Archive — Kendren Cornish</title>
+  <meta name="description" content="A repository of past prototypes, deprecated applications, unused design concepts, and legacy research by Kendren Cornish." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    /* Archive Specific CSS */
+    .archive-header {
+      padding: 160px 5% 80px;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(10,10,12,0.9), var(--bg-1));
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .archive-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
+    .archive-header p {
+      color: var(--text-2);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      padding: 80px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .archive-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .archive-card:hover {
+      border-color: rgba(201, 176, 122, 0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+    .archive-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .archive-card:hover::before { opacity: 1; }
+    
+    .archive-year {
+      font-family: var(--font-mono);
+      color: var(--gold);
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+    .archive-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .archive-desc {
+      color: var(--text-2);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    
+    .archive-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .archive-tag {
+      font-size: 0.75rem;
+      background: rgba(255,255,255,0.05);
+      padding: 4px 10px;
+      border-radius: 50px;
+      color: var(--text-3);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .archive-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-1);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+      margin-top: auto;
+    }
+    .archive-link:hover {
+      color: var(--gold);
+    }
+    
+    .archive-status {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+    .status-deprecated { background: rgba(244, 63, 94, 0.1); color: #f43f5e; }
+    .status-prototype { background: rgba(56, 189, 248, 0.1); color: #38bdf8; }
+    .status-legacy { background: rgba(167, 139, 250, 0.1); color: #a78bfa; }
+
+    @media (max-width: 768px) {
+      .archive-header { padding: 120px 20px 60px; }
+      .archive-grid { padding: 40px 20px; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">KC</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="archive.html" class="active">Archive</a></li>
+        <li><a href="military.html">Service</a></li>
+        <li><a href="nonprofit.html">Nonprofit</a></li>
+        <li><a href="fintech.html">FinTech</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="socials.html">Socials</a></li>
+        <li><a href="contact.html" class="nav-cta">Connect</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="archive-header">
+    <h1>The Vault</h1>
+    <p>A comprehensive log of deprecated projects, early-stage prototypes, deactivated applications, and historical research artifacts preserved for transparency.</p>
+  </header>
+
+  <!-- ARCHIVE GRID -->
+  <main class="archive-grid">
+    
+    <!-- Item 1 -->
+    <div class="archive-card">
+      <div class="archive-status status-prototype">Prototype</div>
+      <div class="archive-year">2026 // Active</div>
+      <h3 class="archive-title">Bitcoin Ordinals Data Viewer</h3>
+      <p class="archive-desc">An experimental real-time block scanner designed to interpret raw hex inscriptions on the Bitcoin mainnet. Initially built to trace tokenized consciousness artifacts.</p>
+      <div class="archive-tags">
+        <span class="archive-tag">Web3</span>
+        <span class="archive-tag">Node.js</span>
+        <span class="archive-tag">RPC</span>
+      </div>
+      <a href="https://prototype-umber-iota.vercel.app/" target="_blank" class="archive-link">View Live Sandbox ↗</a>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="archive-card">
+      <div class="archive-status status-deprecated">Deprecated</div>
+      <div class="archive-year">2023 // Offline</div>
+      <h3 class="archive-title">Space Fort Acquisitions System</h3>
+      <p class="archive-desc">Former backend infrastructure tracking 1.4M+ community assets. Migrated to decentralized ledger in 2024. The legacy platform remains offline but documented conceptually.</p>
+      <div class="archive-tags">
+        <span class="archive-tag">Python</span>
+        <span class="archive-tag">PostgreSQL</span>
+      </div>
+      <span class="archive-link" style="color:var(--text-3); cursor:not-allowed;">Repository Vaulted</span>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="archive-card">
+      <div class="archive-status status-legacy">Legacy</div>
+      <div class="archive-year">2022 // Read-Only</div>
+      <h3 class="archive-title">SMU FinTech Capstone Datasets</h3>
+      <p class="archive-desc">Raw training weights and Jupyter notebooks from the early iterations of the Algorithmic Trading Bot predicting S&P500 volatility indices.</p>
+      <div class="archive-tags">
+        <span class="archive-tag">Jupyter</span>
+        <span class="archive-tag">Pandas</span>
+        <span class="archive-tag">SciKit-Learn</span>
+      </div>
+      <a href="fintech-portfolio.html" class="archive-link">View Overview ↗</a>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="archive-card">
+      <div class="archive-status status-prototype">Sandbox</div>
+      <div class="archive-year">2025 // Testing</div>
+      <h3 class="archive-title">Resume.AI Core Engine v1</h3>
+      <p class="archive-desc">The original test deployment for the LLM-driven job platform before the InsForge API integration. Contains the unredacted context bridging models.</p>
+      <div class="archive-tags">
+        <span class="archive-tag">LLM</span>
+        <span class="archive-tag">React</span>
+      </div>
+      <a href="https://resume-ai-eta-flax.vercel.app" target="_blank" class="archive-link">Access Demo ↗</a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none; padding-top:0;">
+        <p>&copy; 2026 Kendren Cornish. All archive materials preserved under historical usage limits.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
