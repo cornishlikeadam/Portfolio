@@ -1,15 +1,87 @@
 // main.js — Kendren Cornish Portfolio
 
-// ── NAV TOGGLE (mobile) ──
+// ── SERVICE WORKER (PWA) ──
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+
+// ── PWA INSTALL BANNER ──
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const banner = document.getElementById('pwa-install-banner');
+  if (banner && !localStorage.getItem('pwa-dismissed')) {
+    setTimeout(() => banner.classList.add('show'), 2000);
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const confirmBtn = document.getElementById('pwa-install-confirm');
+  const dismissBtn = document.getElementById('pwa-install-dismiss');
+  const banner = document.getElementById('pwa-install-banner');
+  if (confirmBtn) {
+    confirmBtn.addEventListener('click', async () => {
+      if (deferredPrompt) { deferredPrompt.prompt(); const r = await deferredPrompt.userChoice; deferredPrompt = null; }
+      banner?.classList.remove('show');
+    });
+  }
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', () => {
+      banner?.classList.remove('show');
+      localStorage.setItem('pwa-dismissed', '1');
+    });
+  }
+});
+
+// ── INJECT BOTTOM NAV & PWA BANNER INTO EVERY PAGE ──
+document.addEventListener('DOMContentLoaded', () => {
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = [
+    { href: 'index.html',    icon: '🏠', label: 'Home'     },
+    { href: 'projects.html', icon: '⚙️', label: 'Projects' },
+    { href: 'fintech.html',  icon: '₿',  label: 'FinTech'  },
+    { href: 'research.html', icon: '📄', label: 'Research' },
+    { href: 'socials.html',  icon: '🌐', label: 'Connect'  },
+  ];
+  const nav = document.createElement('nav');
+  nav.className = 'mobile-bottom-nav';
+  nav.setAttribute('aria-label', 'Mobile navigation');
+  nav.innerHTML = navLinks.map(n =>
+    `<a href="${n.href}" ${n.href === page ? 'class="active"' : ''} id="mobnav-${n.label.toLowerCase()}">
+      <span class="nav-icon">${n.icon}</span>${n.label}
+    </a>`
+  ).join('');
+  document.body.appendChild(nav);
+
+  // PWA Install Banner
+  const banner = document.createElement('div');
+  banner.id = 'pwa-install-banner';
+  banner.className = 'pwa-install-banner';
+  banner.innerHTML = `
+    <div class="banner-icon">📲</div>
+    <div class="banner-text">
+      <h4>Add to Home Screen</h4>
+      <p>Install Kendren's portfolio as an app</p>
+    </div>
+    <div class="banner-actions">
+      <button class="pwa-install-btn confirm" id="pwa-install-confirm">Install</button>
+      <button class="pwa-install-btn dismiss" id="pwa-install-dismiss">✕</button>
+    </div>`;
+  document.body.appendChild(banner);
+});
+
+// ── NAV TOGGLE (mobile hamburger) ──
 const navToggle = document.getElementById('nav-toggle');
-const navLinks  = document.getElementById('nav-links');
-if (navToggle && navLinks) {
+const navLinksEl  = document.getElementById('nav-links');
+if (navToggle && navLinksEl) {
   navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+    navLinksEl.classList.toggle('open');
     navToggle.classList.toggle('open');
   });
   document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => { navLinks.classList.remove('open'); navToggle.classList.remove('open'); });
+    a.addEventListener('click', () => { navLinksEl.classList.remove('open'); navToggle.classList.remove('open'); });
   });
 }
 

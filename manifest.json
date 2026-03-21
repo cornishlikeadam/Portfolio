@@ -1,0 +1,16 @@
+{
+  "name": "Kendren Cornish Portfolio",
+  "short_name": "KC Portfolio",
+  "description": "Applied AI · FinTech · Comparative Theology — Kendren Cornish",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111315",
+  "theme_color": "#c9b07a",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "smu_badge.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "smu_badge.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["portfolio", "education", "finance"],
+  "lang": "en"
+}

@@ -953,3 +953,159 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .modal-close:hover {
   color: var(--text);
 }
+
+/* ── MOBILE APP ENHANCEMENTS ── */
+
+/* Safe area insets for notch/home indicator */
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Touch scroll momentum */
+* { -webkit-overflow-scrolling: touch; }
+
+/* Touch tap highlight removal */
+a, button { -webkit-tap-highlight-color: transparent; }
+
+/* Minimum touch target size */
+.nav-toggle { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+.nav-links a { min-height: 44px; display: flex; align-items: center; }
+
+/* ── BOTTOM MOBILE NAV BAR ── */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 1001;
+  background: rgba(17,19,21,0.97);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+  grid-template-columns: repeat(5, 1fr);
+}
+.mobile-bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 4px;
+  color: var(--text-3);
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: var(--transition);
+  min-height: 48px;
+  justify-content: center;
+}
+.mobile-bottom-nav a span.nav-icon { font-size: 1.3rem; line-height: 1; }
+.mobile-bottom-nav a.active,
+.mobile-bottom-nav a:hover { color: var(--gold); }
+.mobile-bottom-nav a.active .nav-icon { transform: scale(1.15); }
+
+/* When bottom nav is shown, push content up */
+@media (max-width: 768px) {
+  .mobile-bottom-nav { display: grid; }
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+  /* Hide top nav on mobile to avoid double nav */
+  #main-nav { display: none; }
+
+  /* App-style hero adjustments */
+  .hero { margin: 0 !important; border-radius: 0 !important; min-height: 100svh; }
+
+  /* Card touch feedback */
+  .pillar-card:active, .research-card:active, .link-card:active,
+  .blog-item:active, .fintech-card:active { transform: scale(0.98); }
+
+  /* Larger text for readability */
+  .prose p, .ra-body p, .capstone-card p { font-size: 15px; line-height: 1.85; }
+
+  /* Full-width buttons on mobile */
+  .hero-cta-row .btn { width: 100%; justify-content: center; max-width: 320px; }
+
+  /* Stack capstone cards */
+  .capstone-card { padding: 24px 20px; }
+
+  /* Section padding tighter on mobile */
+  .section-pad { padding: 48px 0; }
+  .prose-section { padding: 48px 0; }
+
+  /* Cert hero stacked */
+  .cert-hero { padding: 80px 16px 48px; }
+
+  /* Module grid single col */
+  .module-grid { grid-template-columns: 1fr; }
+
+  /* Skills grid single col */
+  .skill-bar-group { margin-bottom: 24px; }
+
+  /* Achievements grid single col */
+  .achievements-grid { grid-template-columns: 1fr; }
+
+  /* Research area compact */
+  .research-area { grid-template-columns: 40px 1fr; gap: 16px; }
+  .ra-num { font-size: 2rem; }
+
+  /* Ext links grid single col */
+  .ext-links-grid { grid-template-columns: 1fr; }
+
+  /* Float element hidden on mobile */
+  .hero-chinese-char { display: none; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .section-title { font-size: 1.8rem; }
+  .page-hero h1 { font-size: 2rem; }
+  .cert-hero h1 { font-size: 1.8rem; }
+  .cert-badge-img { width: 160px; height: 160px; }
+  .credential-ribbon { padding: 24px 16px; }
+  .capstone-card { padding: 20px 16px; }
+  .capstone-card h3 { font-size: 1.2rem; }
+  .callout-banner { padding: 20px 16px; }
+}
+
+/* ── PWA INSTALL BANNER ── */
+.pwa-install-banner {
+  position: fixed;
+  bottom: calc(72px + env(safe-area-inset-bottom) + 8px);
+  left: 12px; right: 12px;
+  background: linear-gradient(135deg, rgba(139,43,43,0.95), rgba(17,19,21,0.98));
+  border: 1px solid rgba(201,176,122,0.3);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  z-index: 1000;
+  transform: translateY(120%);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.pwa-install-banner.show { transform: translateY(0); }
+.pwa-install-banner .banner-icon { font-size: 2rem; flex-shrink: 0; }
+.pwa-install-banner .banner-text h4 { font-family: var(--font-display); font-weight: 700; font-size: 1rem; margin-bottom: 2px; }
+.pwa-install-banner .banner-text p { font-size: 12px; color: var(--text-2); margin: 0; }
+.pwa-install-banner .banner-actions { display: flex; gap: 8px; margin-left: auto; flex-shrink: 0; }
+.pwa-install-btn { font-size: 12px; font-weight: 700; padding: 8px 14px; border-radius: 50px; cursor: pointer; transition: var(--transition); }
+.pwa-install-btn.confirm { background: var(--gold); color: #111; border: none; }
+.pwa-install-btn.dismiss { background: transparent; color: var(--text-2); border: 1px solid var(--border); }
+.pwa-install-btn:hover { transform: scale(1.05); }
+
+/* Desktop: hide bottom nav, show top nav */
+@media (min-width: 769px) {
+  .mobile-bottom-nav { display: none !important; }
+  #main-nav { display: block !important; }
+  .pwa-install-banner {
+    bottom: 20px;
+    max-width: 420px;
+    left: auto;
+    right: 20px;
+  }
+}
+
+/* ── ROTATING TEXT MOBILE FIX ── */
+@media (max-width: 768px) {
+  .hero-rotating-text { min-height: 80px; font-size: 1rem; }
+}
