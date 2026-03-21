@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { href: 'index.html',     icon: '🏠', label: 'Home'      },
     { href: 'about.html',     icon: '👤', label: 'About'     },
     { href: 'projects.html',  icon: '⚙️', label: 'Projects'  },
+    { href: 'metrics.html',   icon: '📊', label: 'Metrics'   },
     { href: 'archive.html',   icon: '🏛️', label: 'Archive'   },
     { href: 'music.html',     icon: '🎧', label: 'Music'     },
     { href: 'fintech.html',   icon: '₿',  label: 'FinTech'   },

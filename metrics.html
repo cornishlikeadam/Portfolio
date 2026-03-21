@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#c9b07a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metrics & Performance — Kendren Cornish</title>
+  <meta name="description" content="Sales performance, core competencies, technical skills, and key achievements data mapping for Kendren Cornish." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Dashboard Specific Styles */
+    .metrics-header {
+      padding: 180px 5% 100px;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(10,10,12,0.95), var(--bg-1));
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .metrics-header::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(201,176,122,0.1), transparent 60%);
+      pointer-events: none;
+    }
+    .metrics-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      margin-bottom: 20px;
+      color: var(--gold);
+      position: relative;
+    }
+    .metrics-subtitle {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+
+    /* Section Geometry */
+    .metric-section { padding: 80px 5%; max-width: 1300px; margin: 0 auto; position: relative; }
+    .section-ribbon {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 40px;
+    }
+    .section-ribbon::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+
+    /* Key Achievements Dashboard Grid */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 40px 32px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card:hover {
+      background: rgba(201,176,122,0.05);
+      border-color: rgba(201,176,122,0.3);
+      transform: translateY(-5px);
+    }
+    .stat-card::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--gold); opacity: 0; transition: opacity 0.3s ease;
+    }
+    .stat-card:hover::after { opacity: 1; }
+    
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .stat-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .stat-desc {
+      color: var(--text-2);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Core Competencies Flex Layout */
+    .competencies-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+    .comp-pill {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 16px 24px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.25s, border 0.25s;
+    }
+    .comp-pill:hover {
+      background: rgba(201,176,122,0.1);
+      border-color: var(--gold);
+      color: #fff;
+    }
+
+    /* Two Column Layout for Skills & Certs */
+    .split-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    .metric-list { list-style: none; padding: 0; }
+    .metric-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 1.1rem;
+      color: var(--text-2);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .metric-list li::before {
+      content: '⚡';
+      font-size: 0.9rem;
+      color: var(--gold);
+    }
+    .metric-list.certs li::before { content: '📜'; }
+
+    /* Highlight Block for Extracurricular Web Links */
+    .highlight-banner {
+      background: linear-gradient(135deg, rgba(201,176,122,0.1), rgba(10,10,12,0.9));
+      border: 1px solid rgba(201,176,122,0.2);
+      border-radius: 24px;
+      padding: 48px;
+      margin: 80px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .highlight-banner h3 { font-family: var(--font-display); font-size: 2.5rem; color: #fff; }
+    .highlight-banner p { color: var(--text-2); font-size: 1.1rem; line-height: 1.7; max-width: 800px; }
+    
+    @media (max-width: 900px) {
+      .split-metrics { grid-template-columns: 1fr; gap: 40px; }
+      .metrics-header { padding: 140px 5% 60px; }
+      .stat-number { font-size: 2.8rem; }
+      .highlight-banner { padding: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">KC</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="metrics.html" class="active">Metrics</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="military.html">Service</a></li>
+        <li><a href="nonprofit.html">Nonprofit</a></li>
+        <li><a href="fintech.html">FinTech</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="socials.html">Socials</a></li>
+        <li><a href="contact.html" class="nav-cta">Connect</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="metrics-header">
+    <div class="metrics-subtitle">Data Visualization & Outcomes</div>
+    <h1 class="metrics-title">Sales & Performance</h1>
+    <p style="color:var(--text-2); max-width:600px; margin: 0 auto; font-size:1.1rem; line-height:1.8;">
+      Objective metrics mapping revenue generation, community scaling, technical automations, and multi-disciplinary project launches.
+    </p>
+  </header>
+
+  <main class="metric-section">
+    
+    <!-- KEY ACHIEVEMENTS -->
+    <div class="section-ribbon">📊 Key Achievements</div>
+    <div class="achievements-grid">
+      
+      <div class="stat-card">
+        <div class="stat-number">1M+</div>
+        <div class="stat-title">Combined Audience</div>
+        <div class="stat-desc">Built and scaled Instagram theme pages to over one million combined reach across hyper-targeted niches.</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">50k+</div>
+        <div class="stat-title">Network Followers</div>
+        <div class="stat-desc">Generated 50,000+ targeted followers natively across multiple business profiles and digital footprints.</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-title">Mobile Apps Launched</div>
+        <div class="stat-desc">Developed, packaged, and officially deployed two mobile applications targeting real-world utility.</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">10+</div>
+        <div class="stat-title">Open-Source Projects</div>
+        <div class="stat-desc">Contributed original logic to GitHub spanning Python AI scripts, blockchain trackers, and financial models.</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-title">Books Published</div>
+        <div class="stat-desc">Independently authored and published 5 volumes covering finance dynamics and creative writing.</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">15</div>
+        <div class="stat-title">Age at Trademark</div>
+        <div class="stat-desc">Founded, grew a digital business, and legally trademarked a brand asset before age 16.</div>
+      </div>
+
+    </div>
+
+    <!-- CORE COMPETENCIES -->
+    <div class="section-ribbon">💰 Core Competencies</div>
+    <div class="competencies-cloud">
+      <div class="comp-pill"><span>📈</span> Revenue Generation & Closing</div>
+      <div class="comp-pill"><span>🧠</span> Sales Psychology & Objection Handling</div>
+      <div class="comp-pill"><span>🤖</span> AI & Automation (Python, ML basics)</div>
+      <div class="comp-pill"><span>📱</span> Social Media Scaling & Content Strategy</div>
+      <div class="comp-pill"><span>💼</span> Business Development & Lead Generation</div>
+      <div class="comp-pill"><span>📊</span> Data Analysis & Market Research</div>
+      <div class="comp-pill"><span>🤝</span> Client Relationship Management</div>
+      <div class="comp-pill"><span>🚀</span> Digital Marketing & Growth Strategy</div>
+    </div>
+
+    <!-- HIGHLIGHT: AI AUTOMATIONS & SMU -->
+    <div class="highlight-banner">
+      <h3>AI Automations & Financial Tech</h3>
+      <p>My closing and revenue strategies are augmented by proprietary tech stacks. I have engineered advanced AI LLM context-automation tools and executed machine learning prototypes linking historical S&P metrics with natural language architectures. My foundational approach to bridging code and finance was honed through the rigorous Southern Methodist University curriculum.</p>
+      <div style="display: flex; gap: 16px; margin-top: 10px; flex-wrap:wrap;">
+        <a href="fintech-portfolio.html" class="btn btn-primary">View SMU FinTech Landing Page</a>
+        <a href="projects.html" class="btn btn-outline" style="border-color:var(--gold); color:var(--gold);">Explore AI Automations</a>
+      </div>
+    </div>
+
+    <!-- TECHNICAL SKILLS & CERTIFICATIONS -->
+    <div class="split-metrics">
+      <div>
+        <div class="section-ribbon">🛠 Technical Skills</div>
+        <ul class="metric-list">
+          <li>Python Programming & Scripting</li>
+          <li>Machine Learning (Foundational)</li>
+          <li>Data Analysis & Predictive Statistics</li>
+          <li>Web Design & UI/UX Architecture</li>
+          <li>Blockchain Development & Protocol Research</li>
+          <li>Social Media SEO & Trend Strategy</li>
+          <li>Market Research & Competitor Mapping</li>
+          <li>Financial Analysis & Portfolio Management</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="section-ribbon">📜 Security & Certifications</div>
+        <ul class="metric-list certs">
+          <li>Basic Security Clearance (U.S. Military)</li>
+          <li>CPR Certified</li>
+          <li>Financial Technology Certification (SMU Global)</li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none; padding-top:0;">
+        <p>&copy; 2026 Kendren Cornish. Elite performance metrics preserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

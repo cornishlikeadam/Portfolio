@@ -1,8 +1,8 @@
 // Service Worker — Kendren Cornish Portfolio
-const CACHE = 'kc-portfolio-v4';
+const CACHE = 'kc-portfolio-v5';
 const ASSETS = [
   '/', '/index.html', '/about.html', '/fintech.html', '/fintech-portfolio.html',
-  '/projects.html', '/archive.html', '/music.html', '/research.html', '/military.html', '/nonprofit.html',
+  '/projects.html', '/metrics.html', '/archive.html', '/music.html', '/research.html', '/military.html', '/nonprofit.html',
   '/languages.html', '/blog.html', '/socials.html', '/graduate.html', '/contact.html',
   '/style.css', '/main.js', '/smu_badge.png', '/military_photo.jpg',
   'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap'
