@@ -971,69 +971,85 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .nav-toggle { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
 .nav-links a { min-height: 44px; display: flex; align-items: center; }
 
-/* ── BOTTOM MOBILE NAV BAR ── */
+/* ── MOBILE BOTTOM NAV BAR ── */
 .mobile-bottom-nav {
-  display: none;
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  z-index: 1001;
-  background: rgba(17,19,21,0.97);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid var(--border);
-  padding: 0;
-  padding-bottom: env(safe-area-inset-bottom);
-  /* Scrollable row */
-  flex-direction: row;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-x;
-  scroll-snap-type: x proximity;
-  scrollbar-width: none;
-  white-space: nowrap;
-}
-.mobile-bottom-nav::-webkit-scrollbar { display: none; }
-.mobile-bottom-nav a {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding: 8px 14px;
-  color: var(--text-3);
-  text-decoration: none;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transition: color 0.2s, background 0.2s;
-  min-height: 56px;
-  min-width: 64px;
-  justify-content: center;
-  flex-shrink: 0;
-  scroll-snap-align: start;
-  vertical-align: top;
-  white-space: normal;
-  text-align: center;
-  border-right: 1px solid rgba(255,255,255,0.04);
-}
-.mobile-bottom-nav a:last-child { border-right: none; padding-right: 24px; }
-.mobile-bottom-nav a span.nav-icon { font-size: 1.3rem; line-height: 1; display: block; }
-.mobile-bottom-nav a.active,
-.mobile-bottom-nav a:hover { color: var(--gold); background: rgba(201,176,122,0.07); }
-.mobile-bottom-nav a.active span.nav-icon { transform: scale(1.15); display: block; }
-/* Gradient hint overlay — injected as real DOM element by main.js */
-.nav-scroll-hint {
+  display: none;          /* shown only on mobile via media query */
   position: fixed;
   bottom: 0;
+  left: 0;
   right: 0;
-  width: 40px;
-  height: calc(56px + env(safe-area-inset-bottom));
-  background: linear-gradient(to left, rgba(17,19,21,0.95) 20%, transparent);
-  pointer-events: none;
-  z-index: 1003;
-  transition: opacity 0.3s;
+  z-index: 9990;
+  background: rgba(13,14,18,0.96);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  backdrop-filter: saturate(180%) blur(16px);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  height: calc(60px + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.mobile-bottom-nav::-webkit-scrollbar { display: none; }
+/* Inner wrapper forces true overflow */
+.mobile-bottom-nav .mnav-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 60px;
+  width: max-content;
+  min-width: 100%;
+}
+.mobile-bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 0 16px;
+  min-width: 68px;
+  height: 60px;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.18s, background 0.18s;
+  border-right: 1px solid rgba(255,255,255,0.04);
+  -webkit-tap-highlight-color: transparent;
+}
+.mobile-bottom-nav a:last-child { border-right: none; padding-right: 24px; }
+.mobile-bottom-nav a .mnav-icon { font-size: 1.25rem; line-height: 1; }
+.mobile-bottom-nav a.active  { color: #c9b07a; background: rgba(201,176,122,0.07); }
+.mobile-bottom-nav a:active  { background: rgba(255,255,255,0.05); }
+
+/* ── FLOATING SIDE SCROLL INDICATORS ── */
+.mnav-arrow {
+  position: fixed;
+  bottom: calc(10px + env(safe-area-inset-bottom));
+  z-index: 9995;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(201,176,122,0.18);
+  border: 1px solid rgba(201,176,122,0.25);
+  color: rgba(201,176,122,0.85);
+  font-size: 13px;
+  pointer-events: none;   /* transparent to taps */
+  transition: opacity 0.25s;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.mnav-arrow.left  { left: 6px; }
+.mnav-arrow.right { right: 6px; }
+.mnav-arrow.hidden { opacity: 0; }
+
 
 /* When bottom nav is shown, push content up */
 @media (max-width: 768px) {

@@ -38,51 +38,63 @@ document.addEventListener('DOMContentLoaded', () => {
 // ── INJECT BOTTOM NAV & PWA BANNER INTO EVERY PAGE ──
 document.addEventListener('DOMContentLoaded', () => {
   const page = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = [
-    { href: 'index.html',            icon: '🏠', label: 'Home'      },
-    { href: 'about.html',            icon: '👤', label: 'About'     },
-    { href: 'projects.html',         icon: '⚙️', label: 'Projects'  },
-    { href: 'fintech.html',          icon: '₿',  label: 'FinTech'   },
-    { href: 'research.html',         icon: '📄', label: 'Research'  },
-    { href: 'military.html',         icon: '🎖️', label: 'Service'   },
-    { href: 'nonprofit.html',        icon: '🌱', label: 'Nonprofit' },
-    { href: 'languages.html',        icon: '🈶', label: 'Mandarin'  },
-    { href: 'blog.html',             icon: '✍️', label: 'Blog'      },
-    { href: 'socials.html',          icon: '🌐', label: 'Connect'   },
-    { href: 'graduate.html',         icon: '🎓', label: 'Grad Path' },
-    { href: 'contact.html',          icon: '✉️', label: 'Contact'   },
+  const pages = [
+    { href: 'index.html',     icon: '🏠', label: 'Home'      },
+    { href: 'about.html',     icon: '👤', label: 'About'     },
+    { href: 'projects.html',  icon: '⚙️', label: 'Projects'  },
+    { href: 'fintech.html',   icon: '₿',  label: 'FinTech'   },
+    { href: 'research.html',  icon: '📄', label: 'Research'  },
+    { href: 'military.html',  icon: '🎖️', label: 'Service'   },
+    { href: 'nonprofit.html', icon: '🌱', label: 'Nonprofit' },
+    { href: 'languages.html', icon: '🈶', label: 'Mandarin'  },
+    { href: 'blog.html',      icon: '✍️', label: 'Blog'      },
+    { href: 'socials.html',   icon: '🌐', label: 'Connect'   },
+    { href: 'graduate.html',  icon: '🎓', label: 'Path'      },
+    { href: 'contact.html',   icon: '✉️', label: 'Contact'   },
   ];
+
+  // Build nav with inner wrapper (forces true scroll overflow)
   const nav = document.createElement('nav');
   nav.className = 'mobile-bottom-nav';
   nav.setAttribute('aria-label', 'Mobile navigation');
-  nav.innerHTML = navLinks.map(n =>
-    `<a href="${n.href}" ${n.href === page ? 'class="active"' : ''} id="mobnav-${n.label.toLowerCase().replace(' ','-')}">
-      <span class="nav-icon">${n.icon}</span>${n.label}
+  const inner = document.createElement('div');
+  inner.className = 'mnav-inner';
+  inner.innerHTML = pages.map(n =>
+    `<a href="${n.href}" ${n.href === page ? 'class="active"' : ''}>
+      <span class="mnav-icon">${n.icon}</span>${n.label}
     </a>`
   ).join('');
+  nav.appendChild(inner);
   document.body.appendChild(nav);
 
-  // Inject real gradient hint div (pseudo-elements can't be fixed inside fixed)
-  const hint = document.createElement('div');
-  hint.className = 'nav-scroll-hint';
-  document.body.appendChild(hint);
+  // Floating left/right transparent arrow indicators
+  const arrowL = document.createElement('div');
+  arrowL.className = 'mnav-arrow left hidden';
+  arrowL.textContent = '‹';
+  document.body.appendChild(arrowL);
 
-  // Hide gradient when scrolled to the end
-  nav.addEventListener('scroll', () => {
-    const atEnd = nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 4;
-    hint.style.opacity = atEnd ? '0' : '1';
-  }, { passive: true });
+  const arrowR = document.createElement('div');
+  arrowR.className = 'mnav-arrow right';
+  arrowR.textContent = '›';
+  document.body.appendChild(arrowR);
 
-  // Auto-scroll active tab into centre view
+  function updateArrows() {
+    const sl = nav.scrollLeft;
+    const maxScroll = nav.scrollWidth - nav.clientWidth;
+    arrowL.classList.toggle('hidden', sl < 8);
+    arrowR.classList.toggle('hidden', sl >= maxScroll - 8);
+  }
+
+  nav.addEventListener('scroll', updateArrows, { passive: true });
+
+  // Auto-center active tab on load
   requestAnimationFrame(() => {
     const active = nav.querySelector('a.active');
     if (active) {
-      const offset = active.offsetLeft - (nav.offsetWidth / 2) + (active.offsetWidth / 2);
-      nav.scrollTo({ left: offset, behavior: 'instant' });
+      const offset = active.offsetLeft - (nav.clientWidth / 2) + (active.offsetWidth / 2);
+      nav.scrollLeft = Math.max(0, offset);
     }
-    // Re-check hint after centering
-    const atEnd = nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 4;
-    hint.style.opacity = atEnd ? '0' : '1';
+    updateArrows();
   });
 
   // PWA Install Banner
