@@ -2,6 +2,7 @@
 Nonprofit_photos.pdf
 nonprofit_photos/
 *.pdf
+!assets/seen-until-believed-sacred-tech-edition.pdf
 
 # Exclude git and editor artifacts
 .git/

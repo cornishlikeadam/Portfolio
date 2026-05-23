@@ -23,9 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
     ? 'http://localhost:3005'
     : 'https://handwritten-lead-funnel.vercel.app';
+  const MIRROR_PAGE = 'mirror5000.html';
 
+  injectMirrorNavLink();
   const footer = document.querySelector('footer');
   if (!footer) return;
+
+  injectMirrorFooterCTA(footer);
 
   if (!document.getElementById('recent-ticker-container')) {
     const feed = document.createElement('div');
@@ -44,13 +48,47 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!footer.querySelector('.mirror-admin-entry')) {
     const adminLink = document.createElement('a');
     adminLink.className = 'mirror-admin-entry';
-    adminLink.href = 'mirror5000.html?showLedger=true';
+    adminLink.href = MIRROR_PAGE + '?showLedger=true';
     adminLink.title = 'System Ledger';
     adminLink.setAttribute('aria-label', 'Open Mirror 5000 admin ledger');
     adminLink.textContent = '🧸';
 
     const footerBottom = footer.querySelector('.footer-bottom') || footer;
     footerBottom.appendChild(adminLink);
+  }
+
+  function injectMirrorNavLink() {
+    const navLinks = document.getElementById('nav-links');
+    if (!navLinks || navLinks.querySelector('a[href="mirror5000.html"]')) return;
+
+    const listItem = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = MIRROR_PAGE;
+    link.className = 'mirror-nav-link';
+    link.textContent = 'Mirror 5000';
+    listItem.appendChild(link);
+
+    const contactItem = navLinks.querySelector('a.nav-cta')?.closest('li');
+    navLinks.insertBefore(listItem, contactItem || null);
+  }
+
+  function injectMirrorFooterCTA(targetFooter) {
+    if (document.querySelector('.mirror-site-cta')) return;
+
+    const cta = document.createElement('section');
+    cta.className = 'mirror-site-cta';
+    cta.setAttribute('aria-label', 'Mirror 5000 manual shortcut');
+    cta.innerHTML = `
+      <div class="mirror-site-cta-inner">
+        <div class="mirror-site-cta-copy">
+          <span class="mirror-site-kicker">Mirror 5000</span>
+          <strong>Seen Until Believed Manual</strong>
+          <p>Open the private workbook and download the field manual.</p>
+        </div>
+        <a class="mirror-site-cta-link" href="${MIRROR_PAGE}">Open Manual</a>
+      </div>
+    `;
+    targetFooter.parentNode.insertBefore(cta, targetFooter);
   }
 
   async function loadSitewideRecentSignups(tickerMove) {
@@ -143,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const page = window.location.pathname.split('/').pop() || 'index.html';
   const allPages = [
     { href: 'index.html',     icon: '🏠', label: 'Home'      },
+    { href: 'mirror5000.html', icon: '✦', label: 'Mirror'    },
     { href: 'about.html',     icon: '👤', label: 'About'     },
     { href: 'projects.html',  icon: '⚙️', label: 'Projects'  },
     { href: 'metrics.html',   icon: '📊', label: 'Metrics'   },
@@ -161,8 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const quickNav = [
     { href: 'index.html',    icon: '🏠', label: 'Home'     },
+    { href: 'mirror5000.html', icon: '✦', label: 'Mirror'  },
     { href: 'projects.html', icon: '⚙️', label: 'Projects' },
-    { href: 'research.html', icon: '📄', label: 'Research' },
     { href: 'contact.html',  icon: '✉️', label: 'Contact'  },
   ];
 
