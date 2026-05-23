@@ -282,3 +282,101 @@ if (rotatingPhrases.length > 0) {
     rotatingPhrases[currentPhrase].classList.add('active');
   }, 4000); // Change phrase every 4 seconds
 }
+
+/* ── MIRROR 5000 LEAD MAGNET POPUP ENGINE ── */
+document.addEventListener('DOMContentLoaded', () => {
+  const popupModal = document.getElementById('mirror-popup-modal');
+  const popupClose = document.getElementById('mirror-popup-close');
+  const popupForm = document.getElementById('mirror-popup-form');
+  const popupError = document.getElementById('mirror-popup-error');
+
+  if (!popupModal) return;
+
+  const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+      ? 'http://localhost:3005'
+      : 'https://handwritten-lead-funnel.vercel.app';
+
+  // Trigger popup modal with 2 second delay if not already seen
+  if (!localStorage.getItem('mirror5000_popup_seen')) {
+    setTimeout(() => {
+      popupModal.classList.add('open');
+    }, 2000);
+  }
+
+  // Close popup
+  function closePopup() {
+    popupModal.classList.remove('open');
+    localStorage.setItem('mirror5000_popup_seen', 'true');
+  }
+
+  if (popupClose) {
+    popupClose.addEventListener('click', closePopup);
+  }
+
+  popupModal.addEventListener('click', (e) => {
+    if (e.target === popupModal) {
+      closePopup();
+    }
+  });
+
+  // Handle Form Submit
+  if (popupForm) {
+    popupForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('mirror-popup-name').value.trim();
+      const email = document.getElementById('mirror-popup-email').value.trim();
+      const consent = document.getElementById('mirror-popup-consent-check').checked;
+
+      if (!name || !email) {
+        popupError.textContent = 'Name and email are required.';
+        return;
+      }
+      if (!consent) {
+        popupError.textContent = 'Please accept consent terms.';
+        return;
+      }
+
+      const submitBtn = popupForm.querySelector('.mirror-popup-submit');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'STAMPING...';
+      submitBtn.disabled = true;
+      popupError.textContent = '';
+
+      try {
+        const payload = {
+          first_name: name,
+          email: email,
+          consent_opt_in: true,
+          source_page: 'homepage_popup'
+        };
+
+        const response = await fetch(API_BASE + '/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to submit details.');
+        }
+
+        // Prefill session variables for workbook page
+        sessionStorage.setItem('mirror5000_email', email);
+        sessionStorage.setItem('mirror5000_first_name', name);
+        
+        closePopup();
+        
+        // Redirect to funnel workbook starting page
+        window.location.href = 'mirror5000.html';
+      } catch (err) {
+        console.error("Popup subscription error:", err);
+        popupError.textContent = err.message || 'An error occurred. Please try again.';
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  }
+});
+

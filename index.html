@@ -12,7 +12,7 @@
   <meta name="description" content="Portfolio of Kendren Cornish — SCAD Applied AI researcher, veteran, nonprofit leader, FinTech innovator, and comparative theology scholar bridging Eastern and Western thought through artificial intelligence." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;700&family=Permanent+Marker&family=Reenie+Beanie&family=Patrick+Hand&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -57,6 +57,37 @@
       <div id="newsletter-success" style="display:none; color:var(--lime); margin-top:15px; font-weight:600;">Subscribed successfully!</div>
     </div>
   </div>
+
+  <!-- MIRROR 5000 LEAD MAGNET FIRST-ENTRY POPUP -->
+  <div class="mirror-popup-overlay" id="mirror-popup-modal">
+    <div class="mirror-popup-content">
+      <button class="mirror-popup-close" id="mirror-popup-close">&times;</button>
+      <div class="mirror-popup-stamp">FIELD DROP</div>
+      <h3 class="mirror-popup-title">Seen Until Believed</h3>
+      <p class="mirror-popup-subtitle">The Gospel of Going Visible / Mirror 5000</p>
+      <p class="mirror-popup-desc">
+        A private creator notebook, visibility ritual, and field manual for turning ordinary routine into reach, trust, and opportunities.
+      </p>
+      
+      <form id="mirror-popup-form">
+        <div class="mirror-popup-form-group">
+          <input type="text" id="mirror-popup-name" placeholder="First Name" required />
+        </div>
+        <div class="mirror-popup-form-group">
+          <input type="email" id="mirror-popup-email" placeholder="Email Address" required />
+        </div>
+        <div class="mirror-popup-consent">
+          <label>
+            <input type="checkbox" id="mirror-popup-consent-check" checked required />
+            <span>Opt-in to the Mirror 5000 visibility list & private notes</span>
+          </label>
+        </div>
+        <button type="submit" class="mirror-popup-submit">Stamp Entry & Enter Funnel</button>
+      </form>
+      <div id="mirror-popup-error" class="mirror-popup-error-msg"></div>
+    </div>
+  </div>
+
 
   <!-- HERO -->
   <section class="hero" id="hero" style="background-image: url('military_photo.jpg'); background-size: cover; background-position: center; border-radius:30px; margin: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stamps Locked | Mirror 5000 Confirmation</title>
+    <link rel="stylesheet" href="mirror-style.css?v=1.0.3">
+</head>
+<body>
+
+    <div class="notebook-container" style="text-align: center;">
+        
+        <header>
+            <div class="stamp-badge" style="border-color: var(--success-green); color: var(--success-green); transform: rotate(2deg);">Locked In</div>
+            <div class="mirror-tag">Mirror 5000</div>
+        </header>
+
+        <section class="success-layout">
+            
+            <div class="stamp-effect">VISIBLE</div>
+            
+            <h1 class="hero-heading" style="font-size: 2.5rem; margin-top: 1rem;">Passport Authorized</h1>
+            
+            <p class="hero-subheading" style="max-width: 600px; margin: 0 auto;">
+                Your entry was registered in the Mirror 5000 field database. Your copy of the manual is being dispatched to your email.
+            </p>
+
+            <!-- Dynamic alignment recap -->
+            <div class="notebook-card" style="text-align: left; max-width: 600px; width: 100%; border-left: 5px solid var(--accent-purple);">
+                <div class="card-title" style="font-size: 1.4rem; margin-bottom: 1rem;">Your Visibility Framework</div>
+                
+                <p style="font-weight: 500; font-size: 0.95rem; text-transform: uppercase; color: var(--shadow-charcoal);">1. Identity sentence:</p>
+                <div class="compiler-recap-box" id="success-identity-sentence" style="font-size: 1.5rem; margin-top: 5px; margin-bottom: 1.5rem;">
+                    Loading your profile...
+                </div>
+
+                <p style="font-weight: 500; font-size: 0.95rem; text-transform: uppercase; color: var(--shadow-charcoal);">2. 30-Day Stakes Statement:</p>
+                <div class="compiler-recap-box" id="success-stakes-statement" style="font-size: 1.5rem; margin-top: 5px; border-left-color: var(--stamp-red);">
+                    Loading your stakes...
+                </div>
+            </div>
+
+            <!-- PDF Download Box -->
+            <div class="pdf-download-box">
+                <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1rem; color: var(--gold);">Local Delivery Backup</h3>
+                <p style="font-size: 0.95rem; line-height: 1.4; margin-bottom: 1.5rem;">
+                    If emails are slow, blocked, or caught in spam, you can trigger an instant download of the PDF field manual manually:
+                </p>
+                <a href="assets/seen-until-believed-sacred-tech-edition.pdf" download class="btn-stamp primary" style="text-decoration: none; width: 100%; justify-content: center;">
+                    Download Manual PDF
+                </a>
+            </div>
+
+            <!-- Future Paid Offer Slot -->
+            <div class="offer-tease-card">
+                <div class="stamp-badge" style="font-size: 0.9rem; margin-bottom: 0.5rem; float: right; border-color: var(--accent-purple); color: var(--accent-purple);">UPGRADE</div>
+                <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--accent-purple); margin-bottom: 0.8rem; clear: both;">Want the 30-Day Mirror Execution Kit?</h3>
+                <p style="font-size: 0.95rem; line-height: 1.5; color: var(--shadow-charcoal); margin-bottom: 1rem;">
+                    Get access to my private notion template tracker, daily checklists, video hooks template, and three silent-vlog example walkthroughs. Stop posting blindly. Implement the Mirror Method with structures.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <span style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--stamp-red); transform: rotate(-3deg);">Coming Soon</span>
+                    <div id="waitlist-action-container" style="display: flex; gap: 10px; align-items: center;">
+                        <button class="btn-stamp" id="btn-join-waitlist" style="font-size: 0.9rem; padding: 6px 14px;">Join Waitlist</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compliance Text -->
+            <p class="compliance-text">
+                Compliance Disclosure: Results are not guaranteed. This is a visibility and content strategy system, not a promise of fame, income, or platform growth. Your information is only used to send the PDF, newsletter updates, and Mirror 5000 strategy notes. No spam. No selling your data.
+            </p>
+
+        </section>
+
+        <!-- Live Signup Feed (Obfuscated) -->
+        <div class="recent-ticker-container" id="recent-ticker-container">
+            <div class="recent-ticker-title">Live Field Feed: Recent Authorizations</div>
+            <div class="recent-ticker-wrap">
+                <div class="recent-ticker-move" id="recent-ticker-move">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-social-links">
+                <span>By Kendren Cornish</span>
+                <a href="https://kendren.us" target="_blank">kendren.us</a>
+                <a href="https://instagram.com/THXKENDREN" target="_blank">@THXKENDREN</a>
+                <a href="https://instagram.com/FRU1T4U" target="_blank">@FRU1T4U</a>
+            </div>
+            <p style="font-size: 0.85rem; opacity: 0.7;">
+                <a href="mirror5000.html" style="color: var(--ink); text-decoration: none; font-weight: bold;">← Return to mirror5000</a>
+            </p>
+            <div style="margin-top: 1rem;">
+                <button type="button" class="btn-stamp primary" id="btn-ledger-trigger" style="font-size: 1rem; padding: 8px 18px; transform: rotate(-1deg);" onclick="window.location.href='mirror5000.html?showLedger=true'">Admin Ledger Login</button>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script to render dynamic values -->
+    <script>
+        const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+            ? 'http://localhost:3005'
+            : 'https://handwritten-lead-funnel.vercel.app';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const identity = sessionStorage.getItem('mirror5000_identity_sentence');
+            const stakes = sessionStorage.getItem('mirror5000_stakes_statement');
+            const email = sessionStorage.getItem('mirror5000_email');
+
+            if (identity) {
+                document.getElementById('success-identity-sentence').textContent = identity;
+            } else {
+                document.getElementById('success-identity-sentence').textContent = 
+                    "I am a creator trying to build momentum by documenting my daily growth.";
+            }
+
+            if (stakes) {
+                document.getElementById('success-stakes-statement').textContent = stakes;
+            } else {
+                document.getElementById('success-stakes-statement').textContent = 
+                    "For the next 30 days, I am choosing visibility over hiding. If I complete this, I gain clarity. If I quit, I stay stuck in the same routine.";
+            }
+
+            // Waitlist functionality
+            const waitlistBtn = document.getElementById('btn-join-waitlist');
+            const container = document.getElementById('waitlist-action-container');
+
+            if (waitlistBtn && container) {
+                waitlistBtn.addEventListener('click', async () => {
+                    let userEmail = email;
+                    if (!userEmail) {
+                        // Show a small inline text input
+                        container.innerHTML = `
+                            <input type="email" id="waitlist-email-input" class="input-text" placeholder="Enter your email" style="padding: 6px 12px; font-size: 0.9rem; width: 180px; height: 35px; border-width: 2px;">
+                            <button class="btn-stamp primary" id="btn-waitlist-submit" style="font-size: 0.9rem; padding: 6px 14px; transform: none; box-shadow: 2px 2px 0 var(--shadow-charcoal);">Submit</button>
+                        `;
+                        const submitBtn = document.getElementById('btn-waitlist-submit');
+                        if (submitBtn) {
+                            submitBtn.addEventListener('click', async () => {
+                                const inputVal = document.getElementById('waitlist-email-input').value.trim();
+                                if (!inputVal) return alert('Email required.');
+                                await submitWaitlist(inputVal);
+                            });
+                        }
+                        return;
+                    }
+
+                    await submitWaitlist(userEmail);
+                });
+            }
+
+            async function submitWaitlist(targetEmail) {
+                try {
+                    const response = await fetch(API_BASE + '/api/waitlist', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: targetEmail })
+                    });
+                    const res = await response.json();
+                    if (!response.ok) throw new Error(res.error || 'Failed to join.');
+
+                    container.innerHTML = `<span style="font-family: var(--font-heading); color: var(--success-green); font-size: 1.1rem; transform: rotate(1deg);">✓ Joined Waitlist!</span>`;
+                } catch (err) {
+                    alert(err.message || 'Error joining waitlist.');
+                }
+            }
+
+            // Signup ticker feed
+            async function loadRecentSignups() {
+                const tickerMove = document.getElementById('recent-ticker-move');
+                if (!tickerMove) return;
+
+                try {
+                    const response = await fetch(API_BASE + '/api/subscribers/recent');
+                    if (!response.ok) throw new Error('Failed to load recent signups');
+                    const data = await response.json();
+                    
+                    if (data && data.length > 0) {
+                        // Double the items to make the ticker scroll smoothly/continuously
+                        const items = [...data, ...data];
+                        tickerMove.innerHTML = items.map(s => {
+                            return `<div class="ticker-item">
+                                <span class="highlight-name">${escapeHTML(s.name)}</span> 
+                                (<span class="highlight-email">${escapeHTML(s.email)}</span>) 
+                                just authorized mirror passport entry
+                            </div>`;
+                        }).join(' &nbsp;&bull;&nbsp; ');
+                    } else {
+                        tickerMove.innerHTML = `<div class="ticker-item">Field feed is quiet. Waiting for next signal...</div>`;
+                    }
+                } catch (err) {
+                    console.error("Ticker load error:", err);
+                    tickerMove.innerHTML = `<div class="ticker-item">Failed to connect to field feed logs.</div>`;
+                }
+            }
+
+            function escapeHTML(str) {
+                if (!str) return '';
+                return str
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#039;');
+            }
+
+            loadRecentSignups();
+        });
+    </script>
+</body>
+</html>
