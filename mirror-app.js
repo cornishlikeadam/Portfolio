@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // Redirect on success
-                window.location.href = result.redirectUrl || '/mirror5000/confirmed';
+                window.location.href = 'confirmed.html';
 
             } catch (err) {
                 showError(err.message || 'An error occurred. Please try again.');
@@ -317,17 +317,30 @@ document.addEventListener('DOMContentLoaded', () => {
     let adminToken = sessionStorage.getItem('mirror5000_admin_token') || null;
     let fullSubscriberList = [];
 
+    function verifyBearCodeAndOpenLedger() {
+        const bearCode = prompt("Enter Bear Code (🧸):");
+        if (bearCode !== "9938") {
+            alert("Incorrect Bear Code.");
+            return;
+        }
+        
+        // Bear Code matches, now verify/open ledger secret key
+        if (adminToken) {
+            adminDrawer.style.display = 'block';
+            fetchAdminStats();
+        } else {
+            loginModal.style.display = 'flex';
+            if (adminPassInput) adminPassInput.focus();
+        }
+    }
+
     // Trigger Ledger Drawer
     if (ledgerTrigger) {
         ledgerTrigger.addEventListener('click', () => {
             if (adminDrawer.style.display === 'block') {
                 adminDrawer.style.display = 'none';
-            } else if (adminToken) {
-                adminDrawer.style.display = 'block';
-                fetchAdminStats();
             } else {
-                loginModal.style.display = 'flex';
-                adminPassInput.focus();
+                verifyBearCodeAndOpenLedger();
             }
         });
     }
@@ -335,15 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if showLedger is passed in URL query params
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('showLedger') === 'true') {
-        if (adminDrawer) {
-            if (adminToken) {
-                adminDrawer.style.display = 'block';
-                fetchAdminStats();
-            } else if (loginModal) {
-                loginModal.style.display = 'flex';
-                if (adminPassInput) adminPassInput.focus();
-            }
-        }
+        verifyBearCodeAndOpenLedger();
     }
 
     if (loginCancel) {
