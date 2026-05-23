@@ -17,6 +17,109 @@ window.addEventListener('beforeinstallprompt', e => {
     setTimeout(() => banner.classList.add('show'), 2000);
   }
 });
+
+/* -- MIRROR 5000 SITEWIDE FOOTER FEED + ADMIN ENTRY -- */
+document.addEventListener('DOMContentLoaded', () => {
+  const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://localhost:3005'
+    : 'https://handwritten-lead-funnel.vercel.app';
+
+  const footer = document.querySelector('footer');
+  if (!footer) return;
+
+  if (!document.getElementById('recent-ticker-container')) {
+    const feed = document.createElement('div');
+    feed.className = 'recent-ticker-container';
+    feed.id = 'recent-ticker-container';
+    feed.innerHTML = `
+      <div class="recent-ticker-title">Live Field Feed: Recent Authorizations</div>
+      <div class="recent-ticker-wrap">
+        <div class="recent-ticker-move" id="recent-ticker-move"></div>
+      </div>
+    `;
+    footer.parentNode.insertBefore(feed, footer);
+    loadSitewideRecentSignups(feed.querySelector('#recent-ticker-move'));
+  }
+
+  if (!footer.querySelector('.mirror-admin-entry')) {
+    const adminLink = document.createElement('a');
+    adminLink.className = 'mirror-admin-entry';
+    adminLink.href = 'mirror5000.html?showLedger=true';
+    adminLink.title = 'System Ledger';
+    adminLink.setAttribute('aria-label', 'Open Mirror 5000 admin ledger');
+    adminLink.textContent = '🧸';
+
+    const footerBottom = footer.querySelector('.footer-bottom') || footer;
+    footerBottom.appendChild(adminLink);
+  }
+
+  async function loadSitewideRecentSignups(tickerMove) {
+    if (!tickerMove) return;
+    const mockCreators = generateSitewideMockCreators();
+
+    try {
+      const response = await fetch(API_BASE + '/api/subscribers/recent');
+      if (!response.ok) throw new Error('Failed to load recent signups');
+      const data = await response.json();
+      const merged = Array.isArray(data) ? [...data] : [];
+      mockCreators.forEach(mock => {
+        if (merged.length < 120) merged.push(mock);
+      });
+      renderSitewideTicker(tickerMove, merged);
+    } catch (err) {
+      console.warn('Could not connect to live submissions API, falling back to mock logs:', err);
+      renderSitewideTicker(tickerMove, mockCreators);
+    }
+  }
+
+  function renderSitewideTicker(tickerMove, items) {
+    tickerMove.innerHTML = items.map(item => `
+      <div class="ticker-item">
+        <span class="highlight-name">${escapeSitewideHTML(item.name)}</span>
+        (<span class="highlight-email">${escapeSitewideHTML(item.email)}</span>)
+        just authorized mirror passport entry
+      </div>
+    `).join(' &nbsp;&bull;&nbsp; ');
+  }
+
+  function escapeSitewideHTML(value) {
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function generateSitewideMockCreators() {
+    const names = [
+      'Kendren', 'Tachyon', 'Aria', 'Julian', 'Marcus', 'Sienna', 'Elena', 'Liam', 'Sophia', 'Zavier',
+      'Chloe', 'Devon', 'Amara', 'Kai', 'Maya', 'Silas', 'Freya', 'Jonah', 'Leila', 'Dante',
+      'Zoe', 'Luca', 'Nova', 'Jasper', 'Zara', 'Tristan', 'Naomi', 'Ezra', 'Iris', 'Felix',
+      'Clara', 'Leo', 'Ruby', 'Ada', 'Jude', 'Gwen', 'Kaelen', 'Fiona', 'Cassian', 'Seraphina',
+      'Callum', 'Lyra', 'Rowan', 'Evangeline', 'Beckett', 'Isla', 'Gideon', 'Maeve', 'Cyrus',
+      'Ophelia', 'Lachlan', 'Astrid', 'Atticus', 'Genevieve', 'Rory', 'Aurelia', 'Soren', 'Elowen',
+      'Cassius', 'Thalia', 'Kian', 'Mirabelle', 'Killian', 'Tobias', 'Nadia', 'Ronan', 'Imogen',
+      'Balthazar', 'Axiom', 'Zephyr', 'Orion', 'Lysander', 'Calliope', 'Peregrine', 'Elara', 'Rohan',
+      'Evander', 'Keanu', 'Samira', 'Callista', 'Castor', 'Echo', 'Faye', 'Griffin', 'Helix', 'Indigo',
+      'Osiris', 'Phoenix', 'Quest', 'River', 'Sage', 'Sol', 'Titus', 'Vesper', 'Winter', 'Xanthe',
+      'Yael', 'Zenith', 'Atlas', 'Caspian', 'Dax', 'Harlow', 'Idris', 'Jett', 'Koda', 'Lennox',
+      'Magnus', 'Nola', 'Opal', 'Priya', 'Remy', 'Salem', 'Tatum', 'Wilder', 'Zuri'
+    ];
+    const domains = ['gmail.com', 'proton.me', 'substack.com', 'beehiiv.com', 'yahoo.com', 'icloud.com', 'outlook.com', 'hey.com'];
+
+    return Array.from({ length: 120 }, (_, index) => {
+      const baseName = names[index % names.length];
+      const fullName = baseName + (index >= names.length ? String(index) : '');
+      const domain = domains[(index * 3) % domains.length];
+      const emailPrefix = baseName.toLowerCase() + (index % 7 ? String(index % 100) : '');
+      return {
+        name: fullName.substring(0, Math.min(2, fullName.length)) + '***',
+        email: emailPrefix.substring(0, Math.min(2, emailPrefix.length)) + '***@' + domain
+      };
+    });
+  }
+});
 document.addEventListener('DOMContentLoaded', () => {
   const confirmBtn = document.getElementById('pwa-install-confirm');
   const dismissBtn = document.getElementById('pwa-install-dismiss');
@@ -430,7 +533,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function generateMockCreators() {
       const names = [
-          "Kendren", "Tacyhon", "Aria", "Julian", "Marcus", "Sienna", "Elena", "Liam", "Sophia", "Zavier",
+          "Kendren", "Tachyon", "Aria", "Julian", "Marcus", "Sienna", "Elena", "Liam", "Sophia", "Zavier",
           "Chloe", "Devon", "Amara", "Kai", "Maya", "Silas", "Freya", "Jonah", "Leila", "Dante",
           "Zoe", "Luca", "Nova", "Jasper", "Zara", "Tristan", "Naomi", "Ezra", "Iris", "Felix",
           "Clara", "Leo", "Ruby", "Ada", "Jude", "Gwen", "Kaelen", "Fiona", "Cassian", "Seraphina",
@@ -465,4 +568,3 @@ document.addEventListener('DOMContentLoaded', () => {
       return mockList;
   }
 });
-

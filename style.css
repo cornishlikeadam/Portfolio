@@ -1428,6 +1428,28 @@ a, button { -webkit-tap-highlight-color: transparent; }
     color: #D1A14E; /* Mustard yellow/ochre */
 }
 
+.mirror-admin-entry {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-left: 1rem;
+    border: 2px dashed rgba(233, 228, 217, 0.35);
+    border-radius: 50%;
+    color: #E9E4D9;
+    text-decoration: none;
+    opacity: 0.62;
+    filter: grayscale(0.2);
+}
+
+.mirror-admin-entry:hover,
+.mirror-admin-entry:focus-visible {
+    opacity: 1;
+    border-color: #C96F6B;
+    outline: none;
+}
+
 @keyframes ticker-slide {
     0% {
         transform: translate3d(0, 0, 0);
@@ -1436,5 +1458,4 @@ a, button { -webkit-tap-highlight-color: transparent; }
         transform: translate3d(-100%, 0, 0);
     }
 }
-
 
