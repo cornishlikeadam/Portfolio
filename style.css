@@ -1207,12 +1207,12 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 
 .mirror-popup-content {
-  background-color: #F4EEDC; /* Cream */
+  background-color: #0F0F12; /* Obsidian background */
   background-image: 
-      linear-gradient(rgba(110, 139, 170, 0.15) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(110, 139, 170, 0.15) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 20px 20px;
-  border: 3px solid #171717; /* Ink */
+  border: 3px solid #F5F5F7; /* Apple silver-white text */
   border-radius: 8px;
   padding: 30px;
   width: 90%;
@@ -1220,8 +1220,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
   position: relative;
   transform: translateY(20px) rotate(-1deg);
   transition: transform 0.3s ease;
-  box-shadow: 8px 8px 0px #2B2B2B;
-  color: #171717;
+  box-shadow: 8px 8px 0px #000000;
+  color: #F5F5F7;
   text-align: center;
 }
 
@@ -1234,7 +1234,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   top: 12px;
   right: 15px;
   font-size: 1.8rem;
-  color: #171717;
+  color: #F5F5F7;
   background: none;
   border: none;
   cursor: pointer;
@@ -1242,8 +1242,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 
 .mirror-popup-stamp {
-  border: 2px dashed #B12A22; /* Stamp Red */
-  color: #B12A22;
+  border: 2px dashed #FF453A; /* Stamp Red */
+  color: #FF453A;
   font-family: 'Permanent Marker', cursive, sans-serif;
   font-size: 1.1rem;
   padding: 3px 10px;
@@ -1259,14 +1259,14 @@ a, button { -webkit-tap-highlight-color: transparent; }
   font-family: 'Permanent Marker', cursive, sans-serif;
   font-size: 2.2rem;
   margin-bottom: 5px;
-  color: #171717;
+  color: #F5F5F7;
   text-transform: uppercase;
 }
 
 .mirror-popup-subtitle {
   font-family: 'Patrick Hand', cursive, sans-serif;
   font-size: 1.4rem;
-  color: #7C4DFF; /* Accent Purple */
+  color: #BF5AF2; /* Accent Purple */
   margin-bottom: 15px;
   font-weight: bold;
 }
@@ -1275,9 +1275,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #2B2B2B;
+  color: #E5E5EA;
   margin-bottom: 20px;
-  border-bottom: 2px dashed #171717;
+  border-bottom: 2px dashed #F5F5F7;
   padding-bottom: 15px;
 }
 
@@ -1290,20 +1290,20 @@ a, button { -webkit-tap-highlight-color: transparent; }
   width: 100%;
   padding: 10px 14px;
   background: transparent;
-  border: 2px solid #171717;
+  border: 2px solid #F5F5F7;
   border-radius: 6px;
-  color: #171717;
+  color: #F5F5F7;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.95rem;
   font-weight: bold;
   outline: none;
-  box-shadow: 2px 2px 0px #171717;
+  box-shadow: 2px 2px 0px #000000;
 }
 
 .mirror-popup-content input[type="text"]:focus,
 .mirror-popup-content input[type="email"]:focus {
-  border-color: #7C4DFF;
-  box-shadow: 3px 3px 0px #7C4DFF;
+  border-color: #BF5AF2;
+  box-shadow: 3px 3px 0px #BF5AF2;
 }
 
 .mirror-popup-consent {
@@ -1320,27 +1320,27 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 .mirror-popup-consent input[type="checkbox"] {
   margin-top: 4px;
-  accent-color: #7C4DFF;
+  accent-color: #BF5AF2;
 }
 
 .mirror-popup-consent span {
   font-family: 'Patrick Hand', cursive, sans-serif;
   font-size: 1.15rem;
   line-height: 1.3;
-  color: #171717;
+  color: #F5F5F7;
 }
 
 .mirror-popup-submit {
   width: 100%;
   padding: 12px;
-  background-color: #B12A22; /* Stamp Red */
-  color: #F4EEDC;
-  border: 2px solid #171717;
+  background-color: #FF453A; /* Stamp Red */
+  color: #0F0F12;
+  border: 2px solid #F5F5F7;
   border-radius: 6px;
   font-family: 'Permanent Marker', cursive, sans-serif;
   font-size: 1.25rem;
   cursor: pointer;
-  box-shadow: 4px 4px 0px #171717;
+  box-shadow: 4px 4px 0px #000000;
   text-transform: uppercase;
   transform: rotate(0.5deg);
   margin-top: 10px;
@@ -1348,16 +1348,16 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 .mirror-popup-submit:hover {
   transform: translateY(-2px) rotate(-0.5deg);
-  box-shadow: 6px 6px 0px #171717;
+  box-shadow: 6px 6px 0px #000000;
 }
 
 .mirror-popup-submit:active {
   transform: translateY(1px);
-  box-shadow: 2px 2px 0px #171717;
+  box-shadow: 2px 2px 0px #000000;
 }
 
 .mirror-popup-error-msg {
-  color: #B12A22;
+  color: #FF453A;
   font-family: 'Patrick Hand', cursive, sans-serif;
   font-size: 1.2rem;
   margin-top: 10px;

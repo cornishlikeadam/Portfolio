@@ -2,16 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;700&family=Permanent+Marker&family=Reenie+Beanie&family=Space+Grotesk:wght@400;500;700&family=Patrick+Hand&display=swap');
 
 :root {
-    /* Color Palette */
-    --paper-bg: #F4EEDC;
-    --paper-card: #F7F1E1;
-    --ink: #171717;
-    --stamp-red: #B12A22;
-    --gold: #C49A45;
-    --graph-blue: rgba(110, 139, 170, 0.18);
-    --shadow-charcoal: #2B2B2B;
-    --accent-purple: #7C4DFF;
-    --success-green: #2ecc71;
+    /* Obsidian Futuristic Apple Dark Theme Palette */
+    --paper-bg: #0F0F12; /* Obsidian background */
+    --paper-card: #18181F; /* Dark elevated graphite card */
+    --ink: #F5F5F7; /* Apple silver-white text */
+    --stamp-red: #FF453A; /* Vibrant Apple red */
+    --gold: #FFD60A; /* Vibrant Apple gold / amber */
+    --graph-blue: rgba(255, 255, 255, 0.04); /* Faint white graph grid */
+    --shadow-charcoal: #000000; /* Deep black flat shadow */
+    --accent-purple: #BF5AF2; /* Vibrant Apple purple */
+    --success-green: #30D158; /* Vibrant Apple green */
     
     /* Fonts */
     --font-display: 'Bebas Neue', sans-serif;
@@ -35,7 +35,7 @@
 }
 
 body {
-    background-color: #2B2B2B; /* Deep charcoal background for contrast */
+    background-color: #050507; /* Pure black background for premium contrast */
     color: var(--ink);
     font-family: var(--font-body);
     min-height: 100vh;
@@ -525,7 +525,7 @@ ADMIN LEDGER DRAWER
     border: var(--border-ink);
     border-radius: 8px;
     padding: 2rem;
-    background-color: #ffffff;
+    background-color: var(--paper-card);
     box-shadow: var(--shadow-flat);
     animation: notebookFade 0.3s ease-out forwards;
 }
@@ -594,7 +594,7 @@ ADMIN LEDGER DRAWER
 }
 
 .ledger-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: rgba(255, 255, 255, 0.03);
 }
 
 /* Outbox / Retry section styling */
@@ -612,7 +612,7 @@ ADMIN LEDGER DRAWER
     border-radius: 6px;
     padding: 10px 15px;
     margin-bottom: 10px;
-    background-color: #fffaf0;
+    background-color: var(--paper-bg);
     box-shadow: 2px 2px 0 var(--ink);
 }
 
