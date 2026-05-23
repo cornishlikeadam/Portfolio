@@ -1207,12 +1207,12 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 
 .mirror-popup-content {
-  background-color: #0F0F12; /* Obsidian background */
+  background-color: #E9E4D9; /* Warm sand/concrete cream */
   background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(46, 45, 50, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46, 45, 50, 0.08) 1px, transparent 1px);
   background-size: 20px 20px;
-  border: 3px solid #F5F5F7; /* Apple silver-white text */
+  border: 3px solid #2E2D32; /* Deep slate charcoal ink */
   border-radius: 8px;
   padding: 30px;
   width: 90%;
@@ -1220,8 +1220,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
   position: relative;
   transform: translateY(20px) rotate(-1deg);
   transition: transform 0.3s ease;
-  box-shadow: 8px 8px 0px #000000;
-  color: #F5F5F7;
+  box-shadow: 8px 8px 0px #1D1C20;
+  color: #2E2D32;
   text-align: center;
 }
 
@@ -1234,7 +1234,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   top: 12px;
   right: 15px;
   font-size: 1.8rem;
-  color: #F5F5F7;
+  color: #2E2D32;
   background: none;
   border: none;
   cursor: pointer;
@@ -1242,8 +1242,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 
 .mirror-popup-stamp {
-  border: 2px dashed #FF453A; /* Stamp Red */
-  color: #FF453A;
+  border: 2px dashed #C96F6B; /* Muted rose pink */
+  color: #C96F6B;
   font-family: 'Permanent Marker', cursive, sans-serif;
   font-size: 1.1rem;
   padding: 3px 10px;
@@ -1259,14 +1259,14 @@ a, button { -webkit-tap-highlight-color: transparent; }
   font-family: 'Permanent Marker', cursive, sans-serif;
   font-size: 2.2rem;
   margin-bottom: 5px;
-  color: #F5F5F7;
+  color: #2E2D32;
   text-transform: uppercase;
 }
 
 .mirror-popup-subtitle {
   font-family: 'Patrick Hand', cursive, sans-serif;
   font-size: 1.4rem;
-  color: #BF5AF2; /* Accent Purple */
+  color: #8F7EA6; /* Soft lavender/purple */
   margin-bottom: 15px;
   font-weight: bold;
 }
@@ -1275,9 +1275,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #E5E5EA;
+  color: #2E2D32;
   margin-bottom: 20px;
-  border-bottom: 2px dashed #F5F5F7;
+  border-bottom: 2px dashed #2E2D32;
   padding-bottom: 15px;
 }
 
@@ -1289,21 +1289,27 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .mirror-popup-content input[type="email"] {
   width: 100%;
   padding: 10px 14px;
-  background: transparent;
-  border: 2px solid #F5F5F7;
+  background: #F2EDE0; /* Elevated card cream */
+  border: 2px solid #2E2D32;
   border-radius: 6px;
-  color: #F5F5F7;
+  color: #2E2D32;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.95rem;
   font-weight: bold;
   outline: none;
-  box-shadow: 2px 2px 0px #000000;
+  box-shadow: 2px 2px 0px #1D1C20;
+}
+
+/* Ensure placeholder is visible and has soft contrast */
+.mirror-popup-content input::placeholder {
+  color: #7E7B82;
+  opacity: 0.85;
 }
 
 .mirror-popup-content input[type="text"]:focus,
 .mirror-popup-content input[type="email"]:focus {
-  border-color: #BF5AF2;
-  box-shadow: 3px 3px 0px #BF5AF2;
+  border-color: #8F7EA6;
+  box-shadow: 3px 3px 0px #8F7EA6;
 }
 
 .mirror-popup-consent {
@@ -1320,27 +1326,27 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 .mirror-popup-consent input[type="checkbox"] {
   margin-top: 4px;
-  accent-color: #BF5AF2;
+  accent-color: #8F7EA6;
 }
 
 .mirror-popup-consent span {
   font-family: 'Patrick Hand', cursive, sans-serif;
   font-size: 1.15rem;
   line-height: 1.3;
-  color: #F5F5F7;
+  color: #2E2D32;
 }
 
 .mirror-popup-submit {
   width: 100%;
   padding: 12px;
-  background-color: #FF453A; /* Stamp Red */
-  color: #0F0F12;
-  border: 2px solid #F5F5F7;
+  background-color: #C96F6B; /* Muted rose stamp red */
+  color: #E9E4D9;
+  border: 2px solid #2E2D32;
   border-radius: 6px;
   font-family: 'Permanent Marker', cursive, sans-serif;
   font-size: 1.25rem;
   cursor: pointer;
-  box-shadow: 4px 4px 0px #000000;
+  box-shadow: 4px 4px 0px #1D1C20;
   text-transform: uppercase;
   transform: rotate(0.5deg);
   margin-top: 10px;
@@ -1348,19 +1354,87 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 .mirror-popup-submit:hover {
   transform: translateY(-2px) rotate(-0.5deg);
-  box-shadow: 6px 6px 0px #000000;
+  box-shadow: 6px 6px 0px #1D1C20;
 }
 
 .mirror-popup-submit:active {
   transform: translateY(1px);
-  box-shadow: 2px 2px 0px #000000;
+  box-shadow: 2px 2px 0px #1D1C20;
 }
 
 .mirror-popup-error-msg {
-  color: #FF453A;
+  color: #C96F6B;
   font-family: 'Patrick Hand', cursive, sans-serif;
   font-size: 1.2rem;
   margin-top: 10px;
   font-weight: bold;
 }
+
+/* Dynamic Signup Ticker Feed Styling */
+.recent-ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #F2EDE0; /* Elevated card cream */
+    border: 2.5px solid #2E2D32; /* Deep slate charcoal ink */
+    border-radius: 6px;
+    padding: 0.8rem 0;
+    margin-top: 3rem;
+    box-shadow: 5px 5px 0px #1D1C20;
+    position: relative;
+}
+
+.recent-ticker-title {
+    font-family: 'Permanent Marker', cursive, sans-serif;
+    font-size: 1.1rem;
+    color: #C96F6B; /* Stamp Red */
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.6rem;
+    letter-spacing: 1px;
+}
+
+.recent-ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+}
+
+.recent-ticker-move {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: ticker-slide 25s linear infinite;
+}
+
+.recent-ticker-move:hover {
+    animation-play-state: paused;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 2rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #2E2D32;
+}
+
+.ticker-item span.highlight-name {
+    color: #8F7EA6; /* Soft lavender/purple */
+}
+
+.ticker-item span.highlight-email {
+    color: #D1A14E; /* Mustard yellow/ochre */
+}
+
+@keyframes ticker-slide {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
 

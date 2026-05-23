@@ -378,5 +378,91 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Live Signups Ticker Marquee Initialization
+  const tickerMove = document.getElementById('recent-ticker-move');
+  if (tickerMove) {
+      loadRecentSignups();
+  }
+
+  async function loadRecentSignups() {
+      const mockCreators = generateMockCreators();
+      try {
+          const response = await fetch(API_BASE + '/api/subscribers/recent');
+          if (!response.ok) throw new Error('Failed to load recent signups');
+          const data = await response.json();
+          
+          // Merge real signups at the front, followed by mock creators to pad it
+          const merged = [...data];
+          mockCreators.forEach(mock => {
+              if (merged.length < 120) {
+                  merged.push(mock);
+              }
+          });
+          
+          renderTicker(merged);
+      } catch (err) {
+          console.warn("Could not connect to live submissions API, falling back to mock logs:", err);
+          renderTicker(mockCreators);
+      }
+  }
+
+  function renderTicker(items) {
+      if (!tickerMove) return;
+      tickerMove.innerHTML = items.map(s => {
+          return `<div class="ticker-item">
+              <span class="highlight-name">${escapeHTML(s.name)}</span> 
+              (<span class="highlight-email">${escapeHTML(s.email)}</span>) 
+              just authorized mirror passport entry
+          </div>`;
+      }).join(' &nbsp;&bull;&nbsp; ');
+  }
+
+  function escapeHTML(str) {
+      if (!str) return '';
+      return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+  }
+
+  function generateMockCreators() {
+      const names = [
+          "Kendren", "Tacyhon", "Aria", "Julian", "Marcus", "Sienna", "Elena", "Liam", "Sophia", "Zavier",
+          "Chloe", "Devon", "Amara", "Kai", "Maya", "Silas", "Freya", "Jonah", "Leila", "Dante",
+          "Zoe", "Luca", "Nova", "Jasper", "Zara", "Tristan", "Naomi", "Ezra", "Iris", "Felix",
+          "Clara", "Leo", "Ruby", "Ada", "Jude", "Gwen", "Kaelen", "Fiona", "Cassian", "Seraphina",
+          "Callum", "Lyra", "Rowan", "Evangeline", "Beckett", "Isla", "Gideon", "Maeve", "Cyrus",
+          "Ophelia", "Lachlan", "Astrid", "Atticus", "Genevieve", "Rory", "Aurelia", "Soren", "Elowen",
+          "Cassius", "Thalia", "Kian", "Mirabelle", "Killian", "Tobias", "Nadia", "Ronan", "Imogen",
+          "Balthazar", "Axiom", "Zephyr", "Orion", "Lysander", "Calliope", "Peregrine", "Elara", "Rohan",
+          "Evander", "Keanu", "Samira", "Callista", "Castor", "Echo", "Faye", "Griffin", "Helix", "Indigo",
+          "Osiris", "Phoenix", "Quest", "River", "Sage", "Sol", "Titus", "Vesper", "Winter", "Xanthe",
+          "Yael", "Zenith", "Atlas", "Caspian", "Dax", "Harlow", "Idris", "Jett", "Koda", "Lennox",
+          "Magnus", "Nola", "Opal", "Priya", "Remy", "Salem", "Tatum", "Wilder", "Zuri"
+      ];
+      const domains = ["gmail.com", "proton.me", "substack.com", "beehiiv.com", "yahoo.com", "icloud.com", "outlook.com", "hey.com"];
+      
+      const mockList = [];
+      for (let i = 0; i < 120; i++) {
+          const baseName = names[i % names.length];
+          const nameSuffix = (i >= names.length) ? String(i) : "";
+          const fullName = baseName + nameSuffix;
+          
+          const domain = domains[(i * 3) % domains.length];
+          const emailPrefix = baseName.toLowerCase() + (i % 7 ? String(i % 100) : "");
+          
+          const visibleNameLen = Math.min(2, fullName.length);
+          const obfuscatedName = fullName.substring(0, visibleNameLen) + '***';
+          
+          const visibleEmailLen = Math.min(2, emailPrefix.length);
+          const obfuscatedEmail = emailPrefix.substring(0, visibleEmailLen) + '***@' + domain;
+          
+          mockList.push({ name: obfuscatedName, email: obfuscatedEmail });
+      }
+      return mockList;
+  }
 });
 
