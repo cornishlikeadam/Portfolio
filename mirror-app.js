@@ -709,4 +709,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return mockList;
     }
+
+    // Admin Ledger Tab Switching
+    const tabButtons = document.querySelectorAll('.ledger-tab-btn');
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const tabId = btn.getAttribute('data-tab');
+            if (tabId === 'subscribers') {
+                document.getElementById('tab-subscribers').style.display = 'block';
+                document.getElementById('tab-outbox').style.display = 'none';
+            } else {
+                document.getElementById('tab-subscribers').style.display = 'none';
+                document.getElementById('tab-outbox').style.display = 'block';
+            }
+        });
+    });
 });

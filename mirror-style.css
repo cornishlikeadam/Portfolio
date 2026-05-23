@@ -787,3 +787,37 @@ footer {
     }
 }
 
+/* Ledger tabbed layout styles */
+.ledger-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px dashed var(--ink);
+    padding-bottom: 8px;
+}
+
+.ledger-tab-btn {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    padding: 6px 16px;
+    border: 2px solid transparent;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.ledger-tab-btn.active {
+    border-color: var(--ink);
+    background-color: var(--paper-card);
+    font-weight: bold;
+    box-shadow: 3px 3px 0px var(--shadow-charcoal);
+    transform: rotate(-1deg);
+}
+
+.ledger-tab-content {
+    animation: notebookFade 0.3s ease-out forwards;
+}
+

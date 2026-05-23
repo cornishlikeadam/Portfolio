@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mirror 5000 | The Field Manual for Becoming Seen Until Believed</title>
     <meta name="description" content="Download the Seen Until Believed creator manual. Stamp your identity, set your 30-day stake, and join the visibility experiment.">
-    <link rel="stylesheet" href="mirror-style.css?v=1.0.3">
+    <link rel="stylesheet" href="mirror-style.css?v=1.0.5">
 </head>
 <body>
 
@@ -384,58 +384,69 @@
                 </button>
             </div>
 
-            <!-- Stats Panel -->
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-number" id="stat-total">0</div>
-                    <div class="stat-label">Total Subs</div>
+            <!-- Tabs Navigation -->
+            <div class="ledger-tabs">
+                <button type="button" class="ledger-tab-btn active" data-tab="subscribers">Subscribers Ledger</button>
+                <button type="button" class="ledger-tab-btn" data-tab="outbox">Outbox Email Queue</button>
+            </div>
+
+            <!-- Tab Content: Subscribers -->
+            <div class="ledger-tab-content active" id="tab-subscribers">
+                <!-- Stats Panel -->
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-number" id="stat-total">0</div>
+                        <div class="stat-label">Total Subs</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="stat-today">0</div>
+                        <div class="stat-label">Subs Today</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="stat-monetization" style="font-size: 1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">N/A</div>
+                        <div class="stat-label">Top Monetization</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="stat-obstacle" style="font-size: 1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">N/A</div>
+                        <div class="stat-label">Top Obstacle</div>
+                    </div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number" id="stat-today">0</div>
-                    <div class="stat-label">Subs Today</div>
+
+                <!-- Search / Filter inputs -->
+                <div style="margin-bottom: 1rem; display: flex; gap: 10px;">
+                    <input type="text" id="ledger-search" class="input-text" placeholder="Search by name, email, platform, or sentence..." style="padding: 8px 12px; font-size: 0.9rem;">
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number" id="stat-monetization" style="font-size: 1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">N/A</div>
-                    <div class="stat-label">Top Monetization</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number" id="stat-obstacle" style="font-size: 1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">N/A</div>
-                    <div class="stat-label">Top Obstacle</div>
+
+                <!-- Table -->
+                <div class="ledger-table-container">
+                    <table class="ledger-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Contact &amp; Location</th>
+                                <th>Social Handles</th>
+                                <th>Identity Alignment &amp; Challenge</th>
+                                <th>Obstacle / Money</th>
+                                <th>Email Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ledger-rows">
+                            <tr>
+                                <td colspan="7" style="text-align: center; opacity: 0.6;">No data loaded.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            <!-- Search / Filter inputs -->
-            <div style="margin-bottom: 1rem; display: flex; gap: 10px;">
-                <input type="text" id="ledger-search" class="input-text" placeholder="Search by name, email, platform, or sentence..." style="padding: 8px 12px; font-size: 0.9rem;">
-            </div>
-
-            <!-- Table -->
-            <div class="ledger-table-container">
-                <table class="ledger-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Contact &amp; Location</th>
-                            <th>Social Handles</th>
-                            <th>Identity Alignment &amp; Challenge</th>
-                            <th>Obstacle / Money</th>
-                            <th>Email Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="ledger-rows">
-                        <tr>
-                            <td colspan="7" style="text-align: center; opacity: 0.6;">No data loaded.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Failed / Pending emails section -->
-            <div class="outbox-retry-section">
-                <h3 style="font-family: var(--font-display); font-size: 1.4rem; text-transform: uppercase; margin-bottom: 1rem; color: var(--stamp-red);">Pending / Failed Email Queue</h3>
-                <div id="outbox-list">
-                    <p style="opacity: 0.6; font-size: 0.9rem;">No pending emails in queue.</p>
+            <!-- Tab Content: Outbox -->
+            <div class="ledger-tab-content" id="tab-outbox" style="display: none;">
+                <div class="outbox-retry-section" style="margin-top: 0; border: none; padding: 0; box-shadow: none; background: transparent;">
+                    <h3 style="font-family: var(--font-display); font-size: 1.4rem; text-transform: uppercase; margin-bottom: 1rem; color: var(--stamp-red);">Pending / Failed Email Queue</h3>
+                    <div id="outbox-list">
+                        <p style="opacity: 0.6; font-size: 0.9rem;">No pending emails in queue.</p>
+                    </div>
                 </div>
             </div>
         </section>
