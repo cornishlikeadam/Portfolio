@@ -1,4 +1,15 @@
 {
+  "cleanUrls": true,
+  "routes": [
+    { "src": "/mirror5000/confirmed", "dest": "/confirmed.html" },
+    { "src": "/mirror5000/payment-pending", "dest": "/payment-pending.html" },
+    { "src": "/mirror5000/trillion-unlocked", "dest": "/trillion-unlocked.html" },
+    { "src": "/mirror5000", "dest": "/mirror5000.html" },
+    { "src": "/mirror5000-test/confirmed", "dest": "/confirmed-test.html" },
+    { "src": "/mirror5000-test/payment-pending", "dest": "/payment-pending.html" },
+    { "src": "/mirror5000-test/trillion-unlocked", "dest": "/trillion-unlocked.html" },
+    { "src": "/mirror5000-test", "dest": "/mirror5000-test.html" }
+  ],
   "headers": [
     {
       "source": "/assets/seen-until-believed-sacred-tech-edition.pdf",

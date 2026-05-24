@@ -270,10 +270,10 @@
                 <a href="mailto:TACYHON@proton.me">TACYHON@proton.me</a>
             </div>
             <p style="font-size: 0.85rem; opacity: 0.7;">
-                <a href="../mirror5000" style="color: var(--ink); text-decoration: none; font-weight: bold;">← Return to Mirror Entry Sheet</a>
+                <a href="../mirror5000-test" style="color: var(--ink); text-decoration: none; font-weight: bold;">← Return to Sandbox Entry Sheet</a>
             </p>
             <div style="margin-top: 1.5rem;">
-                <button type="button" class="ledger-trigger" id="btn-ledger-trigger" title="System Ledger" style="font-size: 2.2rem; background: transparent; border: none; cursor: pointer; opacity: 0.7; transition: opacity 0.2s;" onclick="window.location.href='../mirror5000?showLedger=true'">🧸</button>
+                <button type="button" class="ledger-trigger" id="btn-ledger-trigger" title="System Ledger" style="font-size: 2.2rem; background: transparent; border: none; cursor: pointer; opacity: 0.7; transition: opacity 0.2s;" onclick="window.location.href='../mirror5000-test?showLedger=true'">🧸</button>
             </div>
         </footer>
 
@@ -310,7 +310,7 @@
             // Fetch Trillion Product details
             async function fetchProductDetails() {
                 try {
-                    const res = await fetch(API_BASE + '/api/trillion-info');
+                    const res = await fetch(API_BASE + '/api/trillion-info-test');
                     if (!res.ok) throw new Error('Failed to load product pricing.');
                     const data = await res.json();
 
@@ -380,7 +380,7 @@
                     checkoutBtn.disabled = true;
 
                     try {
-                        const res = await fetch(API_BASE + '/api/checkout-intent', {
+                        const res = await fetch(API_BASE + '/api/checkout-intent-test', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ email, subscriberId: subIdParam })
@@ -410,7 +410,7 @@
                     waitlistBtn.disabled = true;
 
                     try {
-                        const res = await fetch(API_BASE + '/api/kit-interest', {
+                        const res = await fetch(API_BASE + '/api/kit-interest-test', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ email })
