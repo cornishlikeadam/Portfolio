@@ -1,14 +1,14 @@
 {
   "cleanUrls": true,
-  "routes": [
-    { "src": "/mirror5000/confirmed", "dest": "/confirmed.html" },
-    { "src": "/mirror5000/payment-pending", "dest": "/payment-pending.html" },
-    { "src": "/mirror5000/trillion-unlocked", "dest": "/trillion-unlocked.html" },
-    { "src": "/mirror5000", "dest": "/mirror5000.html" },
-    { "src": "/mirror5000-test/confirmed", "dest": "/confirmed-test.html" },
-    { "src": "/mirror5000-test/payment-pending", "dest": "/payment-pending.html" },
-    { "src": "/mirror5000-test/trillion-unlocked", "dest": "/trillion-unlocked.html" },
-    { "src": "/mirror5000-test", "dest": "/mirror5000-test.html" }
+  "rewrites": [
+    { "source": "/mirror5000/confirmed", "destination": "/confirmed.html" },
+    { "source": "/mirror5000/payment-pending", "destination": "/payment-pending.html" },
+    { "source": "/mirror5000/trillion-unlocked", "destination": "/trillion-unlocked.html" },
+    { "source": "/mirror5000", "destination": "/mirror5000.html" },
+    { "source": "/mirror5000-test/confirmed", "destination": "/confirmed-test.html" },
+    { "source": "/mirror5000-test/payment-pending", "destination": "/payment-pending.html" },
+    { "source": "/mirror5000-test/trillion-unlocked", "destination": "/trillion-unlocked.html" },
+    { "source": "/mirror5000-test", "destination": "/mirror5000-test.html" }
   ],
   "headers": [
     {
