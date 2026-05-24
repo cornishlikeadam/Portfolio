@@ -1291,7 +1291,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 .mirror-popup-content {
   background-color: #E9E4D9; /* Warm sand/concrete cream */
-  background-image: 
+  background-image:
       linear-gradient(rgba(46, 45, 50, 0.08) 1px, transparent 1px),
       linear-gradient(90deg, rgba(46, 45, 50, 0.08) 1px, transparent 1px);
   background-size: 20px 20px;
@@ -1423,7 +1423,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   width: 100%;
   padding: 12px;
   background-color: #C96F6B; /* Muted rose stamp red */
-  color: #1D1C20;
+  color: #F2EDE0;
   border: 2px solid #2E2D32;
   border-radius: 6px;
   font-family: 'Permanent Marker', cursive, sans-serif;

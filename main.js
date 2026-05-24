@@ -1,5 +1,25 @@
 // main.js — Kendren Cornish Portfolio
 
+async function readMirrorJson(response, fallbackMessage) {
+  const text = await response.text();
+  let data = null;
+
+  if (text) {
+    try {
+      data = JSON.parse(text);
+    } catch (err) {
+      const plain = text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+      throw new Error(plain ? `${fallbackMessage}: ${plain.slice(0, 180)}` : `${fallbackMessage}: invalid server response`);
+    }
+  }
+
+  if (!response.ok) {
+    throw new Error((data && (data.error || data.message)) || fallbackMessage);
+  }
+
+  return data;
+}
+
 // ── SERVICE WORKER (PWA) ──
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -23,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
     ? 'http://localhost:3005'
     : 'https://handwritten-lead-funnel.vercel.app';
-  const MIRROR_PAGE = 'mirror5000.html';
+  const MIRROR_PAGE = '/mirror5000';
 
   injectMirrorNavLink();
   const footer = document.querySelector('footer');
@@ -59,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function injectMirrorNavLink() {
     const navLinks = document.getElementById('nav-links');
-    if (!navLinks || navLinks.querySelector('a[href="mirror5000.html"]')) return;
+    if (!navLinks || navLinks.querySelector('a[href="/mirror5000"], a[href="mirror5000.html"]')) return;
 
     const listItem = document.createElement('li');
     const link = document.createElement('a');
@@ -97,8 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const response = await fetch(API_BASE + '/api/subscribers/recent');
-      if (!response.ok) throw new Error('Failed to load recent signups');
-      const data = await response.json();
+      const data = await readMirrorJson(response, 'Failed to load recent signups');
       const merged = Array.isArray(data) ? [...data] : [];
       mockCreators.forEach(mock => {
         if (merged.length < 120) merged.push(mock);
@@ -181,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const page = window.location.pathname.split('/').pop() || 'index.html';
   const allPages = [
     { href: 'index.html',     icon: '🏠', label: 'Home'      },
-    { href: 'mirror5000.html', icon: '✦', label: 'Mirror'    },
+    { href: '/mirror5000', icon: '✦', label: 'Mirror'    },
     { href: 'about.html',     icon: '👤', label: 'About'     },
     { href: 'projects.html',  icon: '⚙️', label: 'Projects'  },
     { href: 'metrics.html',   icon: '📊', label: 'Metrics'   },
@@ -200,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const quickNav = [
     { href: 'index.html',    icon: '🏠', label: 'Home'     },
-    { href: 'mirror5000.html', icon: '✦', label: 'Mirror'  },
+    { href: '/mirror5000', icon: '✦', label: 'Mirror'  },
     { href: 'projects.html', icon: '⚙️', label: 'Projects' },
     { href: 'contact.html',  icon: '✉️', label: 'Contact'  },
   ];
@@ -499,10 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
           body: JSON.stringify(payload)
         });
 
-        const result = await response.json();
-        if (!response.ok) {
-          throw new Error(result.error || 'Failed to submit details.');
-        }
+        await readMirrorJson(response, 'Failed to submit details.');
 
         // Prefill session variables for workbook page
         sessionStorage.setItem('mirror5000_email', email);
@@ -511,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
         closePopup();
         
         // Redirect to funnel workbook starting page
-        window.location.href = 'mirror5000.html';
+        window.location.href = '/mirror5000';
       } catch (err) {
         console.error("Popup subscription error:", err);
         popupError.textContent = err.message || 'An error occurred. Please try again.';
@@ -531,11 +547,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const mockCreators = generateMockCreators();
       try {
           const response = await fetch(API_BASE + '/api/subscribers/recent');
-          if (!response.ok) throw new Error('Failed to load recent signups');
-          const data = await response.json();
+          const data = await readMirrorJson(response, 'Failed to load recent signups');
           
           // Merge real signups at the front, followed by mock creators to pad it
-          const merged = [...data];
+          const merged = Array.isArray(data) ? [...data] : [];
           mockCreators.forEach(mock => {
               if (merged.length < 120) {
                   merged.push(mock);

@@ -15,7 +15,7 @@
     --accent-purple: #8F7EA6; /* Soft lavender/purple */
     --accent-purple-text: #5F4E78; /* Darkened lavender for readable text */
     --success-green: #6C9482; /* Sage green */
-    
+
     /* Fonts */
     --font-display: 'Bebas Neue', sans-serif;
     --font-heading: 'Permanent Marker', cursive;
@@ -23,7 +23,7 @@
     --font-doodle: 'Reenie Beanie', cursive;
     --font-body: 'Space Grotesk', sans-serif;
     --font-accents: 'Patrick Hand', cursive;
-    
+
     /* Borders & Shadows */
     --border-ink: 3px solid var(--ink);
     --shadow-flat: 5px 5px 0px var(--shadow-charcoal);
@@ -54,7 +54,7 @@ body {
     width: 100%;
     margin: 0 auto;
     background-color: var(--paper-bg);
-    background-image: 
+    background-image:
         linear-gradient(var(--graph-blue) 1px, transparent 1px),
         linear-gradient(90deg, var(--graph-blue) 1px, transparent 1px);
     background-size: 24px 24px;
@@ -435,7 +435,7 @@ header {
 
 .btn-stamp.primary {
     background-color: var(--stamp-red);
-    color: var(--shadow-charcoal);
+    color: var(--paper-bg);
     font-weight: 700;
 }
 
